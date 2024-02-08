@@ -1,13 +1,21 @@
 
-#Script for analyses and figures in Dolph et al
+#Script for data analyses and figures in Dolph et al
 #Title: 'Phosphorus transport in a hotter and drier Midwest: in-channel release of legacy phosphorus during summer low flow conditions' 
-#Updated 2.5.24
+#Updated 2.8.24
 
 #This script does the following:
 #loads concentration-discharge data for gaged watersheds in MN
-#calculates transport behavior metrics based on C-Q relationships
-#identifies low flow/baseflow conditions for all gages
-#calculates transport dynamics when low flow conditions are removed
+#identifies low flow conditions for all gages
+#calculates transport behavior metrics and regression statistics based on C-Q relationships
+#re-calculates transport dynamics when low flow conditions are removed
+#calculates mean SRP by season for each gaged watershed
+#merges mean SRP to potential predictor variables for use in regression analysis
+#compares seasonal mean SRP for gaged watersheds to tile outlets from MN Discovery Farms dataset
+#creates Figures and Tables for Dolph et al 
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Set up workspace
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #remove everything from working environment
 rm(list=ls()) #if needed
@@ -25,17 +33,16 @@ library(rebus)
 library(gridExtra)
 library(gt)
 
-
-#########################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # SET DIRECTORIES #
-########################################################################
-# Define the input & output directory (change as appropriate to your machine)
-input_dir <- "C:/Users/dolph/OneDrive/Documents/USDA Legacy P/DF_C_Q_analysis/instream_legacyP"
-output_dir <- "C:/Users/dolph/OneDrive/Documents/USDA Legacy P/DF_C_Q_analysis/instream_legacyP/output"
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Define the input & output directory (change as appropriate to your working environment)
+input_dir <- "C:/Users/dolph/OneDrive/Documents/USDA Legacy P/instream_legacyP/instream_legacyP"
+output_dir <- "C:/Users/dolph/OneDrive/Documents/USDA Legacy P/instream_legacyP/instream_legacyP/output"
 
-#########################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # LOAD IN & PREPROCESS CONCENTRATION & DISCHARGE DATA FOR GAGED WATERSHEDS
-#########################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #Data from: https://public.tableau.com/app/profile/mpca.data.services/viz/WatershedPollutantLoadMonitoringNetworkWPLMNDataViewer/ProgramOverview [Accessed March 17, 2023]
 #Note: the original dataset contains both measured concentration data (i.e., grab samples) AND modeled concentrations
 #For C-Q relationships we will used only measured concentration data
@@ -112,9 +119,10 @@ head(gage_normalized)
 
 levels(factor(gage_normalized$Station_number))
 nrow(gage_normalized)
-#########################################################################
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # MERGE CONCENTRATION-DISCHARGE DATA TO IDENTIFYING SPATIAL INFORMATION #
-#########################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #Merge concentration-discharge data for gaged watersheds
 #to delineated watershed areas and NHDv2Plus catchment IDs (COMID)
 #see Dolph et al for more details on watershed delineations and NHDv2Plus
@@ -143,9 +151,10 @@ CQ.att<-merge(gage_normalized, gages2 %>% select(-Site_name), by=c('Station_numb
 names(CQ.att)
 levels(factor(CQ.att$Station_name)) ##check number of gages
 nrow(CQ.att)
-####################################################################
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #LOAD ADDITIONAL GEOSPATIAL ATTRIBUTES & MERGE TO C-Q DATA
-####################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 # First: run model to download and pre-process StreamCat attributes
 #Note: StreamCat available from https://www.epa.gov/national-aquatic-resource-surveys/streamcat-dataset [accessed on 9/26/23]
@@ -192,9 +201,11 @@ CQ.att3<-CQ.att3 %>%
   mutate(WWTP_category=WWTP_lim) %>% 
   mutate(WWTP_category=ifelse(WWTPAllDensWs==0, "None", WWTP_category))
 nrow(CQ.att3)
-View(head(CQ.att3))
-#####################################################################
+#View(head(CQ.att3))
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # PLOT SRP CONCENTRATIONS DURING LOW FLOW, BY SEASON #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #Figure for Manuscript
 
 #format Season label in season order
@@ -215,8 +226,9 @@ View(CQ.att3 %>% filter(lowflowpoint=="yes") %>%
   group_by(Impacted, Season) %>% 
   summarise(meanSRP=round(mean(SRP), 4), maxSRP=max(SRP), minSRP=min(SRP)))
 
-#######################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # COMPUTE STATS FOR C-Q REGERSSIONS BEFORE AND AFTER HOLDING OUT LOW FLOWS #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #separately for each gage
 
 ###
@@ -319,8 +331,9 @@ Stats.compare2.LOW.ID<-merge(Stats.compare2.LOW,
 head(Stats.compare2.LOW.ID)
 #View(Stats.compare2.LOW.ID)
 
-#############################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # LOOK AT C-Q PLOTS AND TRENDLINE WITH AND WITHOUT SUMMER LOWFLOW #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 names(CQ.all)
 
@@ -390,8 +403,9 @@ jpeg(
 plotA
 dev.off()
 
-###############################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # ADD IN CVc/CVq TO CHARACTERIZE TRANSPORT BEHAVIOR #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #Daily data available from WQPLM data viewer
 #you can get daily flow on the daily tab, if you include modeled points
@@ -506,8 +520,10 @@ jpeg(
 Transport.plot
 dev.off()
 
-#############################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # CALCULATE MEAN SRP DURING SEASONAL LOW FLOW CONDITIONS FOR GAGED WATERSHEDS #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
 #Table 2 in manuscript
 #Note adjustments for calculating mean and sd in long form for further analysis below
 
@@ -542,8 +558,9 @@ unique(CQ.all[!CQ.all$Station_number %in% Gage.lowflow.summary$Station_number,c(
 Lowflow.sum.transport<-merge(Gage.lowflow.summary, Transport.stats %>% select(Station_name, Station_number, Behavior), by=c("Station_number"))
 levels(factor(Lowflow.sum.transport$Station_name)) 
 
-#####################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #MEAN SRP and/or TRANSPORT STATS IN RELATION TO PREDICTOR VARIABLES #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #Merge attributes to mean lowflow SRP (via COMID from gages2, loaded above)
 names(gages2)
@@ -588,8 +605,9 @@ write.table(lowflow.att2 %>%
 setwd(output_dir)
 write.table(lowflow.att2, "Lowflow_meanSRP_by_gage_and_Season_with_attributes.csv", sep=",")
 
-###########################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # PLOT SRP IN RELATION TO SELECT ATTRIBUTES #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #Need season in long form for faceting (if left in wide form from Table 2, otherwise not needed)
 #if not needed an set lowflow.att3 to lowflow.att2
@@ -720,8 +738,10 @@ plot2
 dev.off()
 
 
-#############################################################################
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # COMPARE MEAN SEASONAL LOW FLOW SRP FROM GAGED WATERSHEDS TO TILE SRP # 
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+
 #Figure for manuscript 
 
 #Load and preprocess tile WQ monitoring data from MN Discovery Farms
