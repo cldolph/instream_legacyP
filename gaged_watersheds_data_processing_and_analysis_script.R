@@ -20,18 +20,57 @@
 #remove everything from working environment
 rm(list=ls()) #if needed
 
-#load libraries
-library(tidyverse)
-library(readxl)
-library(purrr) 
-library(janitor)
-library(stringr)
-library(lubridate)
-library(data.table)
-library(broom)
-library(rebus)
-library(gridExtra)
-library(gt)
+#install packages where necessary and load libraries
+#list of necessary packages 
+necPkgs <- c('tidyverse','readxl','purrr','janitor', 'stringr', 'lubridate',
+             'data.table', 'broom', 'rebus', 'gridExtra', 'gt', 'tidymodels', 
+             'workflows', 'tune', 'ranger', 'missRanger')
+
+
+# list of all packages installed 
+allPkgsInst <- data.frame(
+  Package = names(utils::installed.packages()[, 3]),
+  Version = unname(utils::installed.packages()[, 3]),
+  Depends = unname(utils::installed.packages()[, 5])
+)
+
+# list of necessary packages installed 
+necPkgsInst <- allPkgsInst[grep(paste0("^", necPkgs, "$", collapse = "|"),
+                                allPkgsInst["Package"][[1]]), ]
+
+# loop to either install or update necessary packages
+# load packages after install or update check
+for (pkg in necPkgs) {
+  
+  # if not installed, install
+  if (!pkg %in% necPkgsInst$Package) {
+    message(pkg, " is not installed. Installing now.")
+    utils::install.packages(pkg, 
+                            dependencies = TRUE)
+  }
+  # if installed, update
+  else {
+    if(pkg %in% old.packages()[, 1]) {
+      message(pkg, " is installed, but newer version is available. Updating now.")
+    }
+    else {
+      message(pkg, " is installed and up-to-date.")
+    }
+    
+    # ask = false stops prompt for all updates
+    utils::update.packages(oldPkgs = necPkgs, 
+                           ask = FALSE)
+  }
+  
+  # if not loaded, load
+  if (!pkg %in% (.packages())) {
+    library(pkg, character.only = TRUE)
+  }
+}
+
+# verify necessary packages loaded successfully
+(.packages())
+
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # SET DIRECTORIES #
@@ -162,10 +201,10 @@ nrow(CQ.att)
 #generates an intermediate output file: 'MN_StreamCat_attributes.csv'
 
 setwd(input_dir)
-source('module_preprocess_StreamCat.R')
+#source('module_preprocess_StreamCat.R')
 
 #if you have already run the stream module above, load in attributes directly:
-#streamcat<-read.table('MN_StreamCat_attributes.csv', sep=",", header=TRUE)
+streamcat<-read.table('MN_StreamCat_attributes.csv', sep=",", header=TRUE)
 names(streamcat) #look at all attributes
 
 #Merge to C-Q data: 
@@ -220,6 +259,7 @@ ggplot(CQ.att3 %>% filter(lowflowpoint=="yes"))+
         axis.text.x=element_text(angle=90, hjust=1))+
   ylab("SRP (mg/L")
 
+#Table 1 in manuscript 
 #Look at mean SRP for impacted and less impacted, by season
 View(CQ.att3 %>% filter(lowflowpoint=="yes") %>% 
   #filter(Impacted=="Less Impacted") %>%  #option to look only at impacted sites
@@ -472,7 +512,7 @@ Transport.stats2<-Transport.stats %>%
   mutate(Behavior=ifelse(CVc.CVq <=0.3, "chemostatic", Behavior)) %>% 
   mutate(Behavior=ifelse(p1>=0.05 & CVc.CVq >0.3, "chemodynamic", Behavior)) %>% 
   mutate(across(where(is.numeric), round, 2)) %>% #round all numeric columns to 3 decimal places
-  select(Station_name, Behavior, CVc.CVq, Slope1, p1, R2v1, n1, 
+  select(Station_name, Station_number, Behavior, CVc.CVq, Slope1, p1, R2v1, n1, 
          Slope2, p2, R2v2, n2, Pct_slope_change) 
 #additional formattign for gt table if desired:
 #%>%   #change column order for select columns
@@ -494,7 +534,7 @@ write.table(Transport.stats2, "CQ_stats_beforeafter_LOWFLOW25pct_wTransportBehav
 ###Plot slope (b) vs CVcCVq (Appendix Figure)
 cbbPalette <- c("#E69F00","#D55E00", "#56B4E9","#000000", "#F0E442", "#CC79A7", "#009E73","#0072B2")
 
-Transport.plot<-ggplot(Transport.stats)+
+Transport.plot<-ggplot(Transport.stats2)+
   geom_point(aes(CVc.CVq, Slope1, colour = Behavior))+
   scale_colour_manual(values=cbbPalette)+
   ylab(bquote('Parameter "b" of log-log c-Q relationship'))+
@@ -505,8 +545,8 @@ Transport.plot<-ggplot(Transport.stats)+
 Transport.plot
 
 #For paper - Check number of sites where slope is stronger after holding out low flows:
-names(Transport.stats)
-Transport.stats %>% 
+names(Transport.stats2)
+Transport.stats2 %>% 
   filter(Slope1>0&Slope2>Slope1&p2<0.05) %>% 
   #count()
   summarise(meanslopechange=mean(Pct_slope_change), minslopechange=min(Pct_slope_change),
@@ -524,66 +564,117 @@ dev.off()
 # CALCULATE MEAN SRP DURING SEASONAL LOW FLOW CONDITIONS FOR GAGED WATERSHEDS #
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
-#Table 2 in manuscript
-#Note adjustments for calculating mean and sd in long form for further analysis below
+#Figures 2-5 in manuscript
+#Tables S1-S3 in manuscript 
 
 #Set season factor order
 CQ.all$Season<-factor(CQ.all$Season, levels=c("Early Winter", "Late Winter", "Spring", "Early Summer", "Late Summer", "Fall"))
 
 #View(CQ.all) 
 
+#Calculate mean SRP for all gages during low flow conditions in each season
 Gage.lowflow.summary<-CQ.all %>% 
-  filter(!SRP==0) %>% 
+  filter(!SRP==0) %>% #exclude blank values
   filter(!Flow_cfs==0) %>% 
-  filter(lowflowpoint=="yes") %>%
-  filter(!is.na(SRP)) %>% 
+  filter(lowflowpoint=="yes") %>% #subset to lowflow conditions
+  filter(!is.na(SRP)) %>% #exclude blank values
   group_by(Station_number, Season) %>% 
-  summarise(mean.SRP=round(mean(SRP), 3), sd.SRP=sd(SRP))# %>% 
+  summarise(mean.SRP=round(mean(SRP), 3), sd.SRP=sd(SRP), n=n())# %>% 
   #pivot_wider(names_from = Season, values_from = c(mean.SRP)) #convert to wide form for manuscript 
-#View(Gage.lowflow.summary)                                                              #Table AND omit SD
-
+names(Gage.lowflow.summary)
+#View(Gage.lowflow.summary)
 #Note that some gages only have 1 value for each season and therefore no sd!
 
 levels(factor(CQ.all$Station_number)) #144 sites
 levels(factor(Gage.lowflow.summary$Station_number)) #only 143 sites 
 
-#Find sites that are lost
+#Find site that is lost
 unique(CQ.all[!CQ.all$Station_number %in% Gage.lowflow.summary$Station_number,c(1,3)])
+#View(CQ.all %>% filter(Station_number=="35051002") %>% 
+#  select(Station_name, Station_number, Date, SRP, Flow_cfs, lowflowpoint))
+#Note: this site does not have any SRP collected during low flow conditions - omit from analysis
 
-#Sites to take out (because of insuffient SRP samples in all seasons):
+#Sites to take out (because of SRP samples during low flows):
 #Kettle River nr Willow River, Long Lake Rd (35051002)
 
 #Add transport behavior to season mean SRP 
 
-Lowflow.sum.transport<-merge(Gage.lowflow.summary, Transport.stats %>% select(Station_name, Station_number, Behavior), by=c("Station_number"))
+Lowflow.sum.transport<-merge(Gage.lowflow.summary, Transport.stats2 %>% select(Station_name, Station_number, Behavior), by=c("Station_number"))
 levels(factor(Lowflow.sum.transport$Station_name)) 
+#View(Lowflow.sum.transport)
+
+#Exclude mean.SRP values where total number of samples per season is < n=3
+Lowflow.sum.transport.N<-Lowflow.sum.transport %>% 
+  mutate(mean.SRP=ifelse(n<3, "NA", mean.SRP)) %>% 
+  mutate(mean.SRP=as.numeric(mean.SRP))
+#View(Lowflow.sum.transport.N)
+
+#Table S3 in manuscript
+#Number of low flow samples available by season, for each gaged watershed:
+Table.Season.count<-CQ.all %>% 
+  filter(!SRP==0) %>% 
+  filter(!Flow_cfs==0) %>% 
+  filter(lowflowpoint=="yes") %>%
+  filter(!is.na(SRP)) %>% 
+  group_by(Station_name, Season) %>% 
+  count() %>% 
+  pivot_wider(names_from=Season, values_from=n) %>% 
+  ungroup() 
+Table.Season.count
+#View(Table.Season.count)
+
+#Count number of gaged watersheds with >=3 low flow samples available per season 
+Total.count<- CQ.all %>% 
+  filter(!SRP==0) %>% 
+  filter(!Flow_cfs==0) %>% 
+  filter(lowflowpoint=="yes") %>%
+  filter(!is.na(SRP)) %>% 
+  group_by(Station_name, Season) %>% 
+  count() %>% 
+  ungroup() %>% 
+  filter(n>=3) %>% 
+  group_by(Season) %>% 
+  count() %>% 
+  pivot_wider(names_from=Season, values_from=n) %>% 
+  mutate(Station_name="Total number of sites with >3 samples") %>% 
+  relocate(Station_name)
+Total.count    
+#View(Total.count)
+#Late Summer has by far the most low flow samples available
+
+#Append total number of samples per season to Table
+Table.season.count2<-rbind(Table.Season.count, Total.count[])
+#View(Table.season.count2)
+
+#write table for Appendix
+#Number of SRP samples collected during low flow conditions for each gage in each season
+setwd(output_dir)
+write.table(Table.season.count2,
+            "Num_lowflow_samples_per_season_per_gage.csv", sep=",", row.names=FALSE)
+
+
+
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #MEAN SRP and/or TRANSPORT STATS IN RELATION TO PREDICTOR VARIABLES #
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #Merge attributes to mean lowflow SRP (via COMID from gages2, loaded above)
-names(gages2)
-names(Lowflow.sum.transport)
-gage.lowflow<-merge(Lowflow.sum.transport, (gages2 %>% select(Station_number, COMID)), by=c('Station_number'))
-names(gage.lowflow)
-levels(factor(gage.lowflow$Station_name)) ##check number of sites
+gage.lowflow<-merge(Lowflow.sum.transport.N, (gages2 %>% select(Station_number, COMID)), by=c('Station_number'))
 
 #merge mean lowflow SRP to streamcat attributes (loaded above)
 lowflow.att<-merge(gage.lowflow, streamcat, by=c('COMID'))
-levels(factor(lowflow.att$Station_name)) #check number of sites
 
 #merge mean lowflow SRP to tile data
 lowflow.att2<-merge(lowflow.att, tile2, by=c('Station_number'))
-levels(factor(lowflow.att2$Station_name)) #check number of sites
 
 #separate sites with substantial human impacts - >50% ag or >10% high intensity urban?
-#lowflow.att2$Impacted<-ifelse(lowflow.att2$PctCrop2019Ws>=0.5|lowflow.att2$PctUrbHi2019Ws>=0.1, "Impacted", "Less Impacted")
+lowflow.att2$Impacted<-ifelse(lowflow.att2$PctCrop2019Ws>=0.5|lowflow.att2$PctUrbHi2019Ws>=0.1, "Impacted", "Less Impacted")
 
 #create attribute for degree of WWTP influence
-#lowflow.att2<-lowflow.att2 %>% 
-#  mutate(WWTP_none=ifelse(WWTPAllDensWs==0, "No WWTP", "WWTP present")) %>% 
-#  mutate(WWTP_lim=ifelse(WWTPAllDensWs<0.005, "Limited", "Higher"))
+lowflow.att2<-lowflow.att2 %>% 
+  mutate(WWTP_none=ifelse(WWTPAllDensWs==0, "No WWTP", "WWTP present")) %>% 
+  mutate(WWTP_lim=ifelse(WWTPAllDensWs<0.005, "Limited", "Higher"))
  
 #look at sites with high WWTP influence
 lowflow.att2 %>% filter(WWTPAllDensWs>0.005) %>% 
@@ -591,8 +682,6 @@ lowflow.att2 %>% filter(WWTPAllDensWs>0.005) %>%
   unique() %>% 
   arrange(Station_name)
 
-names(lowflow.att2)
-                                                                                     
 #write table for Appendix
 #Seasonal mean SRP for each gage + WWTP influence
 setwd(output_dir)
@@ -600,6 +689,8 @@ write.table(lowflow.att2 %>%
               select(Station_name, Season, mean.SRP, Impacted, WWTPAllDensWs) %>% 
               pivot_wider(names_from = Season, values_from = mean.SRP),
             "Lowflow_meanSRP_by_gage_and_Season_with_WWTPinfo.csv", sep=",", row.names=FALSE)
+
+#view(lowflow.att2)
 
 #Write table with all attributes, for use in regression models:
 setwd(output_dir)
@@ -610,9 +701,8 @@ write.table(lowflow.att2, "Lowflow_meanSRP_by_gage_and_Season_with_attributes.cs
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 #Need season in long form for faceting (if left in wide form from Table 2, otherwise not needed)
-#if not needed an set lowflow.att3 to lowflow.att2
-lowflow.att3<-lowflow.att2
-levels(factor(lowflow.att3$Station_name))
+lowflow.att3<-lowflow.att2 %>% filter(n>=3) #restrict to sites with at least 3 samples per season
+levels(factor(lowflow.att3$Station_name)) #139 sites have n>=3 in at least 1 season
 
 #lowflow.att3<-lowflow.att2 %>% 
 #pivot_longer(
@@ -628,15 +718,15 @@ lowflow.att3$Season=factor(lowflow.att3$Season, levels=c("Early Winter",
                                                          "Late Winter", "Spring",
                                                          "Early Summer", "Late Summer", 
                                                          "Fall"))
-
-#Manuscript Figure (Wastewater)
-#View(lowflow.att3)
-
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+#Manuscript Figure (Wastewater treatment plant density vs SRP)
+#and associated Appendix Table
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 WWTP.SRP.plot<-ggplot(lowflow.att3)+
   geom_point(aes(WWTPAllDensWs, log(mean.SRP)))+
   #geom_text(aes(WWTPAllDensCat, log(mean.SRP), label=Site_name))+
   #only had trendlines where significant:
-  geom_smooth(data=lowflow.att3 %>% filter(!Season=="Spring"), aes(WWTPAllDensWs, log(mean.SRP)), method="lm", se=FALSE)+
+  geom_smooth(data=lowflow.att3 %>% filter(!Season=="Spring"&!Season=="Early Summer"), aes(WWTPAllDensWs, log(mean.SRP)), method="lm", se=FALSE)+
   #xlim(0,0.005) +#see effect when sites with higher density of point discharges removed
   facet_wrap(~Season)+
   theme_bw()+
@@ -657,35 +747,88 @@ jpeg(
 WWTP.SRP.plot
 dev.off()
 
-#significant relationship with lowflow SRP and wastewater discharges:
-#Early Winter, Late Winter, Early Summer, Late Summer, Fall
-#Spring, not significant
+#Appendix Table:
+#Calculate regression statistics for SRP vs WWTP density, by season
+#Without and without high density WWTP sites
 
-#relationship between seasonal lowflow SRP and WWTP, with and without high Pt Discharge sites
-summary(with(lowflow.att3 %>% filter(Season=="Early Winter"), lm(log(mean.SRP)~WWTPAllDensWs)))
-summary(with(lowflow.att3 %>% filter(Season=="Early Winter"&WWTPAllDensWs<0.005), lm(log(mean.SRP)~WWTPAllDensWs)))
+WWTP.reg <- lowflow.att3 %>%
+  select(c(mean.SRP, WWTPAllDensWs, Season)) %>% 
+  nest(data = -c(Season)) %>%
+  mutate(
+    fit = map(data, ~ lm(log10(mean.SRP) ~ WWTPAllDensWs, data = .x)),
+    tidied = map(fit, tidy),
+    glanced = map(fit, glance),
+    augmented = map(fit, augment)
+  )
+WWTPResults<-WWTP.reg %>%
+  unnest(tidied)
+#Return R2 value:
+WWTPStats<-WWTP.reg %>%
+  unnest(glanced)
+#Create a table with Season, slope, p value, R2, n 
+WWTP_Stats1<-WWTPResults %>% 
+  filter(term=="WWTPAllDensWs") %>% 
+  select(Season, estimate, statistic, p.value, glanced)
+names(WWTP_Stats1)
+View(WWTP_Stats1)
+#unnest glanced stats (R2 values, etc)
+WWTP_Stats2<-WWTP_Stats1 %>% unnest_wider(glanced, names_repair="universal")
 
-summary(with(lowflow.att3 %>% filter(Season=="Late Winter"), lm(log(mean.SRP)~WWTPAllDensWs)))
-summary(with(lowflow.att3 %>% filter(Season=="Late Winter"&WWTPAllDensWs<0.005), lm(log(mean.SRP)~WWTPAllDensWs)))
+WWTP_Stats2<-WWTP_Stats2 %>% 
+  select(1,2,3,4,5,16) %>% 
+  rename(Slope="estimate", T.stat="statistic...3", p="p.value...4", n="nobs") %>% 
+  mutate_at(2:5, round, 2) %>% #round numeric variables to 2 decimal places
+  mutate(p=ifelse(p<0.001, "<0.001", p)) %>%   #nicer formatting
+  mutate(WWTP="all watersheds")
 
-summary(with(lowflow.att3 %>% filter(Season=="Spring"), lm(log(mean.SRP)~WWTPAllDensWs)))
-summary(with(lowflow.att3 %>% filter(Season=="Spring"&WWTPAllDensWs<0.005), lm(log(mean.SRP)~WWTPAllDensWs)))
+#Recalculate regression, without high WWTP density sites
 
-summary(with(lowflow.att3 %>% filter(Season=="Early Summer"&!mean.SRP==0), lm(log(mean.SRP)~WWTPAllDensWs)))
-summary(with(lowflow.att3 %>% filter(Season=="Early Summer"&!mean.SRP==0&WWTPAllDensWs<0.005), lm(log(mean.SRP)~WWTPAllDensWs)))
+WWTP.reg2 <- lowflow.att3 %>%
+  filter(WWTPAllDensWs < 0.005) %>% 
+  select(c(mean.SRP, WWTPAllDensWs, Season)) %>% 
+  nest(data = -c(Season)) %>%
+  mutate(
+    fit = map(data, ~ lm(log10(mean.SRP) ~ WWTPAllDensWs, data = .x)),
+    tidied = map(fit, tidy),
+    glanced = map(fit, glance),
+    augmented = map(fit, augment)
+  )
+WWTPResults2<-WWTP.reg2 %>%
+  unnest(tidied)
+#Return R2 value:
+WWTPStats2<-WWTP.reg2 %>%
+  unnest(glanced)
+#Create a table with Season, slope, p value, R2, n 
+WWTP_Stats1_v2<-WWTPResults2 %>% 
+  filter(term=="WWTPAllDensWs") %>% 
+  select(Season, estimate, statistic, p.value, glanced)
 
-summary(with(lowflow.att3 %>% filter(Season=="Late Summer"), lm(log(mean.SRP)~WWTPAllDensWs)))
-summary(with(lowflow.att3 %>% filter(Season=="Late Summer"&WWTPAllDensWs<0.005), lm(log(mean.SRP)~WWTPAllDensWs)))
+#unnest glanced stats (R2 values, etc)
+WWTP_Stats2_v2<-WWTP_Stats1_v2 %>% unnest_wider(glanced, names_repair="universal")
 
-summary(with(lowflow.att3 %>% filter(Season=="Fall"), lm(log(mean.SRP)~WWTPAllDensWs)))
-summary(with(lowflow.att3 %>% filter(Season=="Fall"&WWTPAllDensWs<0.005), lm(log(mean.SRP)~WWTPAllDensWs)))
+WWTP_Stats2_v2<-WWTP_Stats2_v2 %>% 
+  select(1,2,3,4,5,16) %>% 
+  rename(Slope="estimate", T.stat="statistic...3", p="p.value...4", n="nobs") %>% 
+  mutate_at(2:5, round, 2) %>% #round numeric variables to 2 decimal places
+  mutate(p=ifelse(p<0.001, "<0.001", p)) %>%  #nicer formatting
+  mutate(WWTP="gages with WWTP >0.005 sites/km2 excluded") #add a column to ID WWTP density
+  View(WWTP_Stats2_v2)
 
+#Make table comparing regression stats before and after excluding watersheds with high density WWTP site
+WWTP_Stats_All<-rbind(WWTP_Stats2, WWTP_Stats2_v2)
+WWTP_Stats_All<-WWTP_Stats_All %>% 
+  arrange(Season)
 
-#Ag land use impacts on low flow SRP: Cropland and Manure inputs
+#Appendix table:
+setwd(output_dir)
+write.table(WWTP_Stats_All, "SRP_vs_WWTPdensity_regstats.csv", sep=",", row.names=FALSE)
+
+ 
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+#Manuscript Figure 
+#Ag land use vs low flow SRP
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 plot1<-ggplot(lowflow.att3) +
-#ggplot(lowflow.att3 %>% filter(WWTPAllDensWs==0))+
-  #geom_point(aes(ManureWs, log(mean.SRP),colour=WWTPAllDensWs), size=3)+
-  #geom_smooth(data=lowflow.att3, aes(ManureWs, log(mean.SRP)), method="lm", se=FALSE)+
   geom_point(aes(PctCrop2019Ws, log(mean.SRP), colour=WWTPAllDensWs), size=3)+
   #only add trendlines where significant:
   geom_smooth(data=lowflow.att3, aes(PctCrop2019Ws, log(mean.SRP)), method="lm", se=FALSE)+
@@ -693,7 +836,6 @@ plot1<-ggplot(lowflow.att3) +
   theme_bw()+
   theme(panel.grid=element_blank())+
   xlab("% cropland")+
-  #xlab("Mean manure application rate (kg N/ha/yr)")+
   ylab("log10 SRP (mg/L)")+
   scale_color_gradient(low="orange", high="green")+
   labs(colour=bquote(Density~of~wastewater~treatment~plants~(sites/km^2)))+
@@ -708,13 +850,86 @@ jpeg(
 plot1
 dev.off()
 
-#relationship between seasonal lowflow SRP and crop cover, with and without highly WWTP influenced sites 
-summary(with(lowflow.att3 %>% filter(Season=="Fall") %>% filter(!mean.SRP==0), lm(log(mean.SRP)~PctCrop2019Ws)))
-#without high Pt Discharge sites
-summary(with(lowflow.att3 %>% filter(Season=="Fall"&WWTPAllDensWs==0&!mean.SRP==0), lm(log(mean.SRP)~PctCrop2019Ws)))
+
+#Calculate regression statistics for % cropland vs SRP, by season
+#Without and without high density WWTP sites
+
+Crop.reg <- lowflow.att3 %>%
+  select(c(mean.SRP, PctCrop2019Ws, Season)) %>% 
+  nest(data = -c(Season)) %>%
+  mutate(
+    fit = map(data, ~ lm(log10(mean.SRP) ~ PctCrop2019Ws, data = .x)),
+    tidied = map(fit, tidy),
+    glanced = map(fit, glance),
+    augmented = map(fit, augment)
+  )
+CropResults<-Crop.reg %>%
+  unnest(tidied)
+#Return R2 value:
+CropStats<-Crop.reg %>%
+  unnest(glanced)
+#Create a table with Season, slope, p value, R2, n 
+Crop_Stats1<-CropResults %>% 
+  filter(term=="PctCrop2019Ws") %>% 
+  select(Season, estimate, statistic, p.value, glanced)
+names(Crop_Stats1)
+
+#unnest glanced stats (R2 values, etc)
+Crop_Stats2<-Crop_Stats1 %>% unnest_wider(glanced, names_repair="universal")
+
+Crop_Stats2<-Crop_Stats2 %>% 
+  select(1,2,3,4,5,16) %>% 
+  rename(Slope="estimate", T.stat="statistic...3", p="p.value...4", n="nobs") %>% 
+  mutate_at(2:5, round, 2) %>% #round numeric variables to 2 decimal places
+  mutate(p=ifelse(p<0.001, "<0.001", p)) %>%   #nicer formatting
+  mutate(WWTP="all watersheds")
+View(Crop_Stats2)
+
+#Recalculate regression, for sites with no WWTPs
+levels(factor(lowflow.att3$WWTP_none))
+Crop.reg2 <- lowflow.att3 %>%
+  filter(WWTP_none =="No WWTP") %>% 
+  select(c(mean.SRP, PctCrop2019Ws, Season)) %>% 
+  nest(data = -c(Season)) %>%
+  mutate(
+    fit = map(data, ~ lm(log10(mean.SRP) ~ PctCrop2019Ws, data = .x)),
+    tidied = map(fit, tidy),
+    glanced = map(fit, glance),
+    augmented = map(fit, augment)
+  )
+CropResults2<-Crop.reg2 %>%
+  unnest(tidied)
+#Return R2 value:
+CropStats2<-Crop.reg2 %>%
+  unnest(glanced)
+#Create a table with Season, slope, p value, R2, n 
+Crop_Stats1_v2<-CropResults2 %>% 
+  filter(term=="PctCrop2019Ws") %>% 
+  select(Season, estimate, statistic, p.value, glanced)
+
+#unnest glanced stats (R2 values, etc)
+Crop_Stats2_v2<-Crop_Stats1_v2 %>% unnest_wider(glanced, names_repair="universal")
+
+Crop_Stats2_v2<-Crop_Stats2_v2 %>% 
+  select(1,2,3,4,5,16) %>% 
+  rename(Slope="estimate", T.stat="statistic...3", p="p.value...4", n="nobs") %>% 
+  mutate_at(2:5, round, 2) %>% #round numeric variables to 2 decimal places
+  mutate(p=ifelse(p<0.001, "<0.001", p)) %>%  #nicer formatting
+  mutate(WWTP="no WWTP present in watershed") #add a column to ID WWTP density
+#View(Crop_Stats2_v2)
+
+#Make table comparing regression stats before and after excluding watersheds with high density WWTP site
+Crop_Stats_All<-rbind(Crop_Stats2, Crop_Stats2_v2)
+Crop_Stats_All<-Crop_Stats_All %>% 
+  arrange(Season)
+#View(Crop_Stats_All)
+
+#Appendix table:
+setwd(output_dir)
+write.table(Crop_Stats_All, "SRP_vs_Cropcover_regstats.csv", sep=",", row.names=FALSE)
+
 
 plot2<-ggplot(lowflow.att3 %>% filter(WWTPAllDensWs==0)) +
-  #ggplot(lowflow.att3 %>% filter(WWTPAllDensWs==0))+
   geom_point(aes(PctCrop2019Ws, log(mean.SRP)), size=3, color="orange")+
   #only had trendlines where significant:
   geom_smooth(data=lowflow.att3 %>% filter(WWTPAllDensWs==0), aes(PctCrop2019Ws, log(mean.SRP)), method="lm", se=FALSE)+
@@ -753,17 +968,21 @@ source('module_tile_WQ_data.R')
 ##Plot tile concentrations for each site in each season
 #Note: select season manually by specifying 'Season.label' to produce plot for each season
 
+
+
+#add number of samples for each gage, by season
+sample.count<-Table.Season.count %>% 
+  pivot_longer(!Station_name, names_to="Season", values_to="count")
+CQ.att4<-merge(CQ.att3, sample.count, by=c("Station_name", "Season"))
+
 #for plot formatting make a dummy label that matches format of tile labels
-#(This CQ.att3 is from legacy_P_script_clean_11_8_23.R)
-names(CQ.att3)
-levels(factor(CQ.att3$Impacted))
-CQ.att3<-CQ.att3 %>% 
+CQ.att4<-CQ.att4 %>% 
   mutate(DummyID=substr(Station_name,1,7))
 
 #set Season for Plots
-Season.label<-"Early Winter"
+Season.label<-"Fall"
 #set intercept for mean tile SRP for appropriate Season
-mean.tile<-0.03
+mean.tile<-0.035
 
 plotA<-ggplot(FWC %>% filter(Type=="Tile"&Season==Season.label))+
   geom_boxplot(aes(Site_ID, (DOP_mgL)))+
@@ -779,8 +998,9 @@ plotA<-ggplot(FWC %>% filter(Type=="Tile"&Season==Season.label))+
   ylab("SRP (mg/L)")
 plotA
 
-plotB<-ggplot(CQ.att3 %>% 
-                filter(Season==Season.label&lowflowpoint=="yes"))+
+plotB<-ggplot(CQ.att4 %>% 
+                filter(Season==Season.label&lowflowpoint=="yes") %>%
+                filter(count>=3))+ #restrict to sites with at least 3 samples in a season 
   geom_boxplot(aes(DummyID, (SRP), fill=WWTP_category, color=WWTP_category))+
   ylim(0,1.25)+
   theme(panel.grid=element_blank(), axis.title.x=element_blank(),
@@ -802,20 +1022,20 @@ plotB<-ggplot(CQ.att3 %>%
 
 grid.arrange(plotA, plotB, ncol=2, nrow=1)
 
-#Print Figures to file
+#Print Figures to file (need to make separately for each season)
 setwd(output_dir)
 jpeg(
-  file="./Figures/EarlyWinter_tile_vs_riverSRP.jpeg",
+  file="./Figures/Fall_tile_vs_riverSRP.jpeg",
   units='in', height=6, width=12, res=300)
 grid.arrange(plotA, plotB, ncol=2, nrow=1)
 dev.off()
 
 #Check number of outliers removed with shorter yaxis (limited to 0,1.25)
-CQ.att3 %>% 
+CQ.att4 %>% 
   filter(lowflowpoint=="yes") %>% 
   filter(SRP>1.25) %>% 
-  nrow()#9 samples total
-nrow(CQ.att3 %>% filter(lowflowpoint=="yes"))
+  nrow()
+nrow(CQ.att4 %>% filter(lowflowpoint=="yes"))
 FWC %>% 
   filter(DOP_mgL>1.25) %>% 
   nrow()
@@ -828,26 +1048,33 @@ nrow(FWC)
 mean.monthly
 
 #merge tile thresholds to CQ data for gaged watersheds
-names(lowflow.att3)
 lowflow.att4<-merge(lowflow.att3, mean.monthly, by=c("Season"))
-View(lowflow.att4 %>% 
-  select(Season, mean.SRP, mean.SRP.tile) %>% 
-  group_by(Season) %>% 
-  mutate(rows_above_tile=sum(round(mean.SRP, 3)>round(mean.SRP.tile,3))) %>% 
-  select(Season, rows_above_tile) %>% 
-  unique())
+
+#count number of gaged watersheds with SRP> mean tile SRP, by season:
+#View(lowflow.att4 %>% 
+#  select(Station_name, Season, mean.SRP, mean.SRP.tile) %>% 
+#  mutate(above_tile=ifelse(round(mean.SRP, 3)>round(mean.SRP.tile,3), 1, 0)) %>% 
+#  group_by(Season) %>% 
+#  summarise(total=sum(above_tile, na.rm=TRUE)))
+    
 
 #Check in the context of WWTP
 #figure out how many sites with mean SRP higher than mean tile have strong WWTP influence
-View(lowflow.att4 %>% 
-  filter(WWTPAllDensWs > 0.005) %>% 
-  select(Season, mean.SRP, mean.SRP.tile) %>% 
-  group_by(Season) %>% 
-  mutate(rows_above_tile=sum(round(mean.SRP,3)>round(mean.SRP.tile,3))) %>% 
-  select(Season, rows_above_tile) %>% 
-  unique())
+#View(lowflow.att4 %>% 
+#  filter(WWTPAllDensWs > 0.005) %>% 
+#    select(Station_name, Season, mean.SRP, mean.SRP.tile) %>% 
+#    mutate(above_tile=ifelse(round(mean.SRP, 3)>round(mean.SRP.tile,3), 1, 0)) %>% 
+#    group_by(Season) %>% 
+#    summarise(total=sum(above_tile, na.rm=TRUE)))
 
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# Late summer SRP for additional field sites compared to tile 
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
+#Figure for manuscript 
+
+setwd(input_dir)
+source('module_additional_field_data.R')
 
 
 
