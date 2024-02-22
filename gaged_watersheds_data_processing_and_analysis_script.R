@@ -102,6 +102,9 @@ Discharge2<-Discharge %>%
   mutate_at(c('Station_number'), as.character) %>% #make sure station is character ID
   select(Station_name, SRP, Flow_cfs, Date, Month, Year, Data_type, Station_number)
 
+#Check date range
+summary(Discharge2$Date)
+
 #Calculate percentile rank for all for flows for each gage:
 #(this is needed later for identifying low flow conditions)
 Discharge.rank<-Discharge2 %>% 
@@ -232,6 +235,7 @@ levels(factor(CQ.att3$Station_name)) #check number of sites
 #as described in Dolph et al 
 CQ.att3$Impacted<-ifelse(CQ.att3$PctCrop2019Ws>=0.5|CQ.att3$PctUrbHi2019Ws>=0.1, "Impacted", "Less Impacted")
 
+
 #Create attribute to differentiate between low/no WWTP sites and sites with higher WWTP density
 #as described in Dolph et al
 CQ.att3<-CQ.att3 %>% 
@@ -241,6 +245,15 @@ CQ.att3<-CQ.att3 %>%
   mutate(WWTP_category=ifelse(WWTPAllDensWs==0, "None", WWTP_category))
 nrow(CQ.att3)
 #View(head(CQ.att3))
+
+#Count number of samples per site
+CQ.att3 %>% 
+  group_by(Station_number) %>% 
+  count() %>% 
+  ungroup() %>% 
+  summarise(mean.n=mean(n), median.n=median(n),min.n=min(n), max.n=max(n))
+
+
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # PLOT SRP CONCENTRATIONS DURING LOW FLOW, BY SEASON #
@@ -262,9 +275,18 @@ ggplot(CQ.att3 %>% filter(lowflowpoint=="yes"))+
 #Table 1 in manuscript 
 #Look at mean SRP for impacted and less impacted, by season
 View(CQ.att3 %>% filter(lowflowpoint=="yes") %>% 
-  #filter(Impacted=="Less Impacted") %>%  #option to look only at impacted sites
+  #filter(Impacted=="Impacted") %>%  #option to look only at impacted sites
   group_by(Impacted, Season) %>% 
   summarise(meanSRP=round(mean(SRP), 4), maxSRP=max(SRP), minSRP=min(SRP)))
+
+#count number of Impacted sites
+#note - see notes below on excluding Kettle River site (no summer low flow samples)
+levels(factor(CQ.att3$Station_name))
+CQ.att3 %>% select(Station_name, Impacted) %>% 
+  filter(!Station_name=="Kettle River nr Willow River, Long Lake Rd") %>% 
+  group_by(Impacted) %>% summarise(No_sites = n_distinct(Station_name)) 
+
+
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # COMPUTE STATS FOR C-Q REGERSSIONS BEFORE AND AFTER HOLDING OUT LOW FLOWS #
@@ -555,7 +577,7 @@ Transport.stats2 %>%
 #Print Figure to file 
 setwd(output_dir)
 jpeg(
-  file="./Figures/Transport_behavior.jpeg",
+ file="./Figures/Transport_behavior.jpeg",
   units='in', height=6, width=8, res=300)
 Transport.plot
 dev.off()
@@ -594,7 +616,7 @@ unique(CQ.all[!CQ.all$Station_number %in% Gage.lowflow.summary$Station_number,c(
 #  select(Station_name, Station_number, Date, SRP, Flow_cfs, lowflowpoint))
 #Note: this site does not have any SRP collected during low flow conditions - omit from analysis
 
-#Sites to take out (because of SRP samples during low flows):
+#Sites to take out (because of lack of SRP samples during low flows):
 #Kettle River nr Willow River, Long Lake Rd (35051002)
 
 #Add transport behavior to season mean SRP 
@@ -653,7 +675,24 @@ write.table(Table.season.count2,
             "Num_lowflow_samples_per_season_per_gage.csv", sep=",", row.names=FALSE)
 
 
+#count number of sites with late summer low flow SRP above eutrophication threshold
+Gage.lowflow.summary %>% 
+  filter(Season=="Late Summer") %>% 
+  filter(mean.SRP>=0.02) %>% 
+  nrow()
+  
+#How many sites where C-Q relationship is altered also have SRP above tile concentration?
+names(Transport.stats2)
+elevatedSRP<-merge(Gage.lowflow.summary, Transport.stats2 %>% select(Station_name, Station_number, Behavior, Pct_slope_change, Slope2, p2), by=c("Station_number"))
+names(elevatedSRP)
 
+elevatedSRP %>% 
+  filter(Season=="Late Summer") %>% 
+  filter(mean.SRP>0.033) %>% 
+  filter(Pct_slope_change>0&Slope2>0&p2<=0.05) %>% 
+  count()
+#78 sites show increase in mobilizing behavior without late summer low flows
+#45 of these sites show mean SRP above tile concentration
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #MEAN SRP and/or TRANSPORT STATS IN RELATION TO PREDICTOR VARIABLES #
@@ -681,6 +720,14 @@ lowflow.att2 %>% filter(WWTPAllDensWs>0.005) %>%
   select(Station_name) %>% 
   unique() %>% 
   arrange(Station_name)
+
+#Count sites with elevated SRP concentration in late summer, without WWTP influence
+lowflow.att2 %>%
+  filter(Season=="Late Summer") %>% 
+  filter(WWTPAllDensWs<0.005) %>% 
+  #filter(WWTPAllDensWs==0) %>% 
+  filter(mean.SRP>0.03) %>% 
+  count()
 
 #write table for Appendix
 #Seasonal mean SRP for each gage + WWTP influence

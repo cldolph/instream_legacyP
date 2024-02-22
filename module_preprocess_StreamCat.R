@@ -9,7 +9,7 @@ setwd(input_dir)
 
 start.time<-Sys.time()
 
-#Scrape StreamCat Files from FTP site:
+#Download StreamCat Files from FTP site:
 download.file("https://gaftp.epa.gov/epadatacommons/ORD/NHDPlusLandscapeAttributes/StreamCat/States/CanalDensity_MN.zip", destfile = "CanalDensity_MN.zip")
 unzip("CanalDensity_MN.zip")
 CanalDensityMN<-read.csv("CanalDensity_MN.csv")

@@ -1,145 +1,145 @@
-"Site.name","Behavior","CVc.CVq","Slope.1.","p.1.","R2.1.","n1","Slope.2.","p.2.","R2.2.","n2","X..slope.change"
-"Brule River nr Hovland, MN61","chemodynamic","0.94","0.14","0.17","0.10","21","0.14","0.20","0.09","20","2.09"
-"Poplar River nr Lutsen, 0.2mi US of MN61","chemodynamic","0.75","0.05","0.20","0.01","167","0.04","0.42","0.00","160","-29.40"
-"Baptism River nr Beaver Bay, MN61","chemodynamic","0.66","0.04","0.21","0.01","184","0.05","0.14","0.01","175","30.80"
-"Beaver River nr Beaver Bay, 1.2mi us of MN61","chemodynamic","0.51","0.09","0.20","0.04","48","0.07","0.42","0.02","44","-24.03"
-"Big Sucker Creek nr Palmers, CR258","chemodynamic","0.60","0.03","0.40","0.00","162","0.01","0.71","0.00","158","-54.47"
-"St. Louis River at Floodwood, CSAH8","mobilizing","0.99","0.24","0.00","0.09","87","0.30","0.00","0.12","82","21.11"
-"St. Louis River nr Forbes, US53","mobilizing","0.58","0.15","0.01","0.06","120","0.13","0.05","0.03","111","-13.42"
-"Second Creek nr Aurora, 0.6mi us of CSAH110","mobilizing","1.48","0.18","0.04","0.04","108","0.20","0.06","0.04","99","8.43"
-"St. Louis River at Scanlon, MN","mobilizing","1.08","0.24","0.00","0.11","138","0.20","0.00","0.06","127","-16.90"
-"Cloquet River nr Brimson, CSAH44","chemodynamic","0.62","-0.03","0.75","0.00","80","-0.13","0.29","0.02","73","325.35"
-"Cloquet River nr Burnett, CR694","chemodynamic","1.04","0.03","0.59","0.00","142","-0.02","0.77","0.00","129","-165.87"
-"Nemadji River nr Pleasant Valley, MN23","mobilizing","0.88","0.30","0.00","0.31","68","0.28","0.00","0.26","62","-7.72"
-"Mississippi River nr Bemidji, CSAH11","chemodynamic","1.13","-0.22","0.18","0.04","44","-0.19","0.32","0.03","41","-16.08"
-"Mississippi River nr Bemidji, MN","chemodynamic","1.89","-0.02","0.92","0.00","42","-0.12","0.66","0.01","38","449.62"
-"Leech Lake River nr Ball Club, CR139","chemodynamic","1.63","0.05","0.68","0.00","77","0.05","0.76","0.00","69","-13.76"
-"Boy River nr Boy River, CSAH53","chemodynamic","1.77","0.28","0.09","0.06","49","0.29","0.14","0.05","44","0.70"
-"Prairie River nr Taconite, MN","chemodynamic","0.56","-0.13","0.08","0.05","59","-0.18","0.05","0.08","53","33.85"
-"Mississippi River at Grand Rapids, MN","mobilizing","1.32","0.27","0.00","0.06","184","0.42","0.00","0.11","171","56.08"
-"Swan River nr Jacobson, CR438","chemodynamic","0.94","-0.19","0.20","0.03","55","-0.22","0.24","0.03","51","14.27"
-"Swan River nr Sobieski, MN238","mobilizing","1.06","0.52","0.00","0.26","62","0.57","0.00","0.27","59","9.49"
-"Pine River nr Jenkins, CSAH15","chemodynamic","0.62","0.23","0.21","0.08","22","0.36","0.10","0.15","20","60.81"
-"Leaf River nr Staples, CSAH29","mobilizing","0.54","0.23","0.00","0.15","181","0.23","0.00","0.14","174","-0.59"
-"Long Prairie River at Philbrook, 313th Ave","mobilizing","0.71","0.11","0.02","0.02","279","0.10","0.04","0.02","274","-5.65"
-"Long Prairie River at Long Prairie, MN","mobilizing","1.05","0.41","0.00","0.14","60","0.44","0.00","0.16","59","7.12"
-"Two Rivers nr Bowlus, 40th St","chemodynamic","0.88","-0.16","0.47","0.03","21","-0.16","0.47","0.03","21","0.00"
-"Sauk River nr St. Martin, CR12","mobilizing","1.27","0.83","0.00","0.30","60","1.01","0.00","0.37","56","21.66"
-"Clearwater River nr Clearwater, CR145","chemodynamic","1.22","-0.12","0.44","0.01","59","-0.28","0.10","0.05","56","137.88"
-"Elk River nr Big Lake, MN","mobilizing","1.12","0.44","0.02","0.09","63","0.50","0.01","0.11","61","11.55"
-"St. Francis River nr Big Lake, 164th St","chemodynamic","0.78","-0.17","0.27","0.02","61","-0.16","0.32","0.02","56","-2.19"
-"Middle Fork Crow River nr Manannah, CSAH30","mobilizing","1.57","0.91","0.00","0.28","70","0.83","0.00","0.25","67","-8.82"
-"North Fork Crow River nr Cokato, CSAH4","mobilizing","1.49","0.90","0.00","0.19","74","1.02","0.00","0.21","71","14.20"
-"North Fork Crow River nr Rockford, Farmington Ave","mobilizing","1.05","0.33","0.00","0.07","206","0.32","0.00","0.06","202","-4.36"
-"South Fork Crow River at Delano, Bridge Ave","mobilizing","0.53","0.10","0.05","0.02","212","0.12","0.03","0.02","206","16.77"
-"Buffalo Creek nr Glencoe, CSAH1","chemodynamic","0.95","-0.05","0.56","0.00","71","0.09","0.39","0.01","68","-260.73"
-"West Branch Rum River nr Princeton, CR102","chemodynamic","0.33","0.15","0.12","0.10","25","0.15","0.12","0.10","25","0.00"
-"Rum River at Anoka,headwater side of dam","mobilizing","0.72","0.37","0.00","0.14","171","0.38","0.00","0.14","170","1.48"
-"Minnesota River nr Lac qui Parle, MN","mobilizing","0.90","0.31","0.01","0.05","165","0.35","0.00","0.06","162","12.09"
-"Yellow Bank River nr Odessa, CSAH40","mobilizing","0.52","0.55","0.00","0.45","177","0.56","0.00","0.44","173","1.26"
-"Pomme De Terre River at Appleton, MN","mobilizing","1.07","0.95","0.00","0.33","166","0.94","0.00","0.33","164","-0.47"
-"Pomme de Terre River nr Hoffman, CR76","mobilizing","1.94","0.91","0.00","0.25","110","1.25","0.00","0.32","103","38.26"
-"Lac qui Parle River nr Lac qui Parle, CSAH31","mobilizing","0.71","0.49","0.00","0.33","186","0.49","0.00","0.31","181","0.31"
-"Lac qui Parle River nr Providence, CSAH23","mobilizing","0.49","0.58","0.00","0.40","72","0.70","0.00","0.44","69","20.68"
-"West Branch Lac qui Parle River at Dawson, Diagonal St","mobilizing","0.47","0.25","0.00","0.12","64","0.42","0.00","0.22","60","67.62"
-"Hawk Creek nr Maynard, MN23","chemostatic","0.30","0.34","0.00","0.30","120","0.34","0.00","0.29","115","2.35"
-"Hawk Creek nr Granite Falls, CR52","mobilizing","0.51","0.50","0.00","0.37","375","0.44","0.00","0.31","363","-11.18"
-"Beaver Creek nr Beaver Falls, CSAH2","mobilizing","0.34","0.42","0.00","0.36","113","0.45","0.00","0.37","107","7.70"
-"Yellow Medicine River nr Granite Falls, MN","mobilizing","0.70","0.35","0.00","0.25","257","0.34","0.00","0.23","249","-2.22"
-"Yellow Medicine River nr Hanley Falls, CR18","mobilizing","0.70","0.46","0.00","0.34","119","0.48","0.00","0.30","112","3.82"
-"Spring Creek nr Hanley Falls, 480th St","chemodynamic","0.49","-0.07","0.26","0.01","106","0.02","0.77","0.00","99","-133.05"
-"Chippewa River nr Clontarf, CSAH22","mobilizing","1.51","0.94","0.00","0.28","123","1.03","0.00","0.29","118","10.10"
-"Shakopee Creek nr Benson, 20th Ave SW","mobilizing","0.75","0.46","0.00","0.13","135","0.76","0.00","0.28","130","64.74"
-"Chippewa River nr Milan, MN40","mobilizing","1.33","0.65","0.00","0.29","304","0.68","0.00","0.28","295","4.66"
-"East Branch Chippewa River nr Benson, CR78","mobilizing","0.91","0.44","0.00","0.13","119","0.69","0.00","0.24","113","57.36"
-"Redwood River nr Redwood Falls, MN","diluting","0.66","-0.10","0.00","0.02","327","-0.20","0.00","0.10","316","96.50"
-"Redwood River at Russell, CR15","mobilizing","0.61","0.28","0.00","0.12","104","0.34","0.00","0.13","97","21.16"
-"Minnesota River at Morton, MN","mobilizing","0.77","0.26","0.00","0.06","299","0.28","0.00","0.07","292","9.18"
-"Minnesota River at Judson, CSAH42","mobilizing","0.79","0.52","0.00","0.21","433","0.53","0.00","0.19","419","1.36"
-"Seven Mile Creek nr St. Peter, 0.6mi us of US169","mobilizing","0.56","0.41","0.00","0.39","326","0.40","0.00","0.33","304","-2.53"
-"Cottonwood River nr New Ulm, MN68","mobilizing","0.73","0.62","0.00","0.49","389","0.60","0.00","0.44","375","-3.08"
-"Sleepy Eye Creek nr Cobden, CR8","mobilizing","0.51","0.42","0.00","0.44","118","0.43","0.00","0.40","110","3.60"
-"Cottonwood River nr Leavenworth, CR8","mobilizing","0.91","0.46","0.00","0.35","136","0.47","0.00","0.27","130","1.75"
-"Blue Earth River nr Winnebago, CSAH12","mobilizing","0.71","0.47","0.00","0.27","139","0.50","0.00","0.22","131","6.30"
-"East Branch Blue Earth River at Blue Earth, CSAH16","mobilizing","0.84","0.20","0.00","0.06","140","0.29","0.00","0.08","132","41.42"
-"Blue Earth River nr Rapidan, MN","mobilizing","0.74","0.62","0.00","0.45","437","0.64","0.00","0.41","418","1.69"
-"South Fork Watonwan River nr Madelia, CSAH13","mobilizing","0.94","0.21","0.00","0.08","123","0.31","0.00","0.13","117","46.60"
-"Watonwan River nr La Salle, CSAH3","mobilizing","0.44","0.22","0.00","0.12","140","0.30","0.00","0.18","134","38.00"
-"Watonwan River nr Garden City, CSAH13","mobilizing","0.66","0.45","0.00","0.38","360","0.42","0.00","0.32","345","-6.66"
-"Maple River nr Sterling Center, CR18","mobilizing","0.34","0.24","0.00","0.22","269","0.33","0.00","0.26","254","36.51"
-"Big Cobb River nr Beauford, CSAH16","mobilizing","0.56","0.35","0.00","0.20","243","0.47","0.00","0.20","225","32.66"
-"Maple River nr Rapidan, CR35","mobilizing","0.37","0.56","0.00","0.50","216","0.62","0.00","0.49","205","11.20"
-"Little Beauford Ditch nr Beauford, MN22","mobilizing","0.36","0.27","0.00","0.18","198","0.42","0.00","0.32","184","57.82"
-"Le Sueur River nr Rapidan, CR8","mobilizing","0.43","0.62","0.00","0.50","269","0.67","0.00","0.45","252","7.11"
-"Le Sueur River nr Rapidan, MN","mobilizing","0.59","0.56","0.00","0.46","478","0.55","0.00","0.42","459","-0.76"
-"Le Sueur River at St. Clair, CSAH28","mobilizing","0.34","0.32","0.00","0.21","179","0.38","0.00","0.20","165","21.25"
-"High Island Creek nr Arlington, CR9","chemodynamic","0.78","0.09","0.12","0.02","100","0.14","0.07","0.03","95","54.04"
-"High Island Creek nr Henderson, CSAH6","mobilizing","0.79","0.36","0.00","0.20","96","0.33","0.00","0.11","88","-10.11"
-"Kettle River nr Willow River, Long Lake Rd","chemodynamic","0.52","-0.03","0.89","0.00","25","-0.03","0.89","0.00","25","0.00"
-"Snake River nr Pine City, MN","mobilizing","0.57","0.23","0.00","0.11","213","0.22","0.00","0.10","206","-4.32"
-"Sunrise River at Sunrise, CR88","chemodynamic","0.51","-0.04","0.53","0.00","90","-0.02","0.81","0.00","86","-57.90"
-"Wells Creek nr Frontenac, US61","mobilizing","1.57","1.26","0.00","0.59","56","1.26","0.00","0.58","54","-0.52"
-"Cannon River at Welch, MN","mobilizing","1.07","0.49","0.00","0.09","119","0.68","0.00","0.17","113","37.33"
-"Cannon River at Morristown, CSAH16","chemodynamic","0.81","-0.25","0.07","0.06","58","-0.20","0.18","0.03","56","-20.19"
-"Straight River nr Faribault, MN","mobilizing","0.50","0.34","0.00","0.28","111","0.35","0.00","0.28","109","2.89"
-"Whitewater River nr Beaver, CSAH30","mobilizing","1.28","0.82","0.00","0.53","206","0.83","0.00","0.53","201","0.52"
-"North Fork Whitewater River at Elba, Whitewater Dr","mobilizing","0.99","0.93","0.00","0.68","82","0.94","0.00","0.68","80","1.08"
-"North Fork Zumbro River nr Mazeppa, CSAH7","mobilizing","0.90","0.58","0.00","0.40","99","0.60","0.00","0.39","95","2.88"
-"Zumbro River at Kellogg, US61","mobilizing","1.03","0.59","0.00","0.38","229","0.60","0.00","0.37","220","2.57"
-"South Fork Zumbro River nr Oronoco, CR121","mobilizing","0.86","0.18","0.00","0.06","126","0.23","0.00","0.09","120","31.70"
-"South Branch Middle Fork Zumbro River nr Oronoco,5th St","mobilizing","0.59","0.49","0.00","0.39","103","0.52","0.00","0.40","100","6.68"
-"Middle Fork Zumbro River nr Oronoco,5th St","mobilizing","0.75","0.58","0.00","0.50","127","0.62","0.00","0.51","119","6.60"
-"South Branch Root River at Lanesboro, Rochelle Ave N","mobilizing","1.05","0.79","0.00","0.47","127","0.80","0.00","0.45","120","1.00"
-"Middle Branch Root River nr Fillmore, CSAH5","mobilizing","0.72","0.53","0.00","0.32","121","0.60","0.00","0.33","113","12.67"
-"Cedar River nr Austin, MN","diluting","0.57","-0.25","0.00","0.19","265","-0.22","0.00","0.14","256","-12.34"
-"Turtle Creek at Austin, 43rd St","mobilizing","0.92","0.58","0.00","0.21","103","0.72","0.00","0.24","94","23.05"
-"Shell Rock River nr Gordonsville, CSAH1","diluting","1.69","-0.73","0.00","0.29","192","-0.73","0.00","0.28","189","-0.47"
-"West Fork Des Moines River nr Avoca, CSAH6","mobilizing","0.69","0.60","0.00","0.33","77","0.80","0.00","0.41","72","34.59"
-"West Fork Des Moines River at Jackson, River St","chemodynamic","1.57","-0.04","0.59","0.00","165","-0.05","0.56","0.00","160","16.04"
-"Bois de Sioux River nr Doran, MN","mobilizing","0.32","0.23","0.00","0.26","426","0.24","0.00","0.25","414","2.88"
-"Mustinka River nr Norcross, MN9","mobilizing","0.58","0.41","0.00","0.20","91","0.62","0.00","0.30","85","51.09"
-"Twelvemile Creek nr Wheaton, CSAH14","mobilizing","0.32","0.15","0.02","0.07","84","0.33","0.00","0.20","79","117.23"
-"Pelican River nr Fergus Falls, MN210","mobilizing","1.27","0.49","0.01","0.09","77","0.60","0.00","0.11","72","23.70"
-"Otter Tail River nr Elizabeth, MN","chemodynamic","3.18","0.15","0.32","0.01","70","0.21","0.23","0.02","63","41.57"
-"Otter Tail River at Breckenridge, CSAH16","mobilizing","3.26","1.21","0.00","0.22","231","1.35","0.00","0.24","220","11.46"
-"Red River of the North nr Kragnes, CSAH26","chemodynamic","0.32","-0.02","0.46","0.00","376","0.00","0.89","0.00","369","-80.69"
-"Buffalo River nr Georgetown, CR108","mobilizing","0.32","0.30","0.00","0.25","438","0.32","0.00","0.26","427","7.98"
-"Buffalo River nr Glyndon, CSAH19","mobilizing","0.50","0.40","0.00","0.28","73","0.46","0.00","0.32","70","15.25"
-"South Branch Buffalo River nr Glyndon, 28th Ave S","chemostatic","0.28","0.20","0.00","0.17","105","0.29","0.00","0.24","98","49.53"
-"Buffalo River nr Hawley, MN","mobilizing","0.53","0.40","0.00","0.27","97","0.43","0.00","0.28","93","6.76"
-"Wild Rice River nr Mahnomen, CSAH25","mobilizing","0.73","0.22","0.04","0.10","43","0.36","0.03","0.13","38","60.21"
-"Wild Rice River at Twin Valley, MN","mobilizing","0.75","0.58","0.00","0.49","57","0.55","0.00","0.39","53","-3.98"
-"Wild Rice River at Hendrum, MN","mobilizing","0.48","0.43","0.00","0.36","402","0.46","0.00","0.36","388","7.08"
-"S Br. Wild Rice River at CR27 nr Felton, MN","mobilizing","0.32","0.29","0.00","0.29","48","0.30","0.00","0.26","44","2.91"
-"Sandhill River nr Fertile, 450th St SW","mobilizing","0.70","0.47","0.00","0.23","104","0.52","0.00","0.23","94","9.61"
-"Sand Hill River at Climax, MN, US-75","mobilizing","0.41","0.50","0.00","0.43","331","0.51","0.00","0.43","322","2.12"
-"Red Lake River at High Landing nr Goodridge, MN","mobilizing","4.74","0.65","0.01","0.11","59","0.90","0.00","0.17","53","37.65"
-"Red Lake River at Red Lake Falls, CR13","mobilizing","1.47","0.93","0.00","0.42","121","1.00","0.00","0.39","113","6.80"
-"Red Lake River at Fisher, MN","mobilizing","0.81","0.71","0.00","0.34","383","0.77","0.00","0.35","366","7.81"
-"Thief River nr Thief River Falls, MN","mobilizing","0.83","0.14","0.00","0.05","421","0.13","0.00","0.04","410","-1.92"
-"Thief River downstream of CSAH 7, 6 mi E of Holt","mobilizing","1.53","0.11","0.05","0.02","161","0.06","0.34","0.01","155","-45.73"
-"Mud River nr Grygla, MN89","mobilizing","1.01","0.29","0.00","0.17","157","0.40","0.00","0.23","142","40.11"
-"Clearwater River at Plummer, MN","mobilizing","0.73","0.44","0.00","0.15","99","0.55","0.00","0.19","94","24.76"
-"Lost River nr Brooks, CR119","chemodynamic","0.68","0.11","0.24","0.02","79","0.42","0.00","0.15","67","273.75"
-"Clearwater River at Red Lake Falls, MN","mobilizing","0.55","0.41","0.00","0.18","396","0.37","0.00","0.14","380","-10.15"
-"Snake River nr Big Woods, MN220","chemostatic","0.26","0.12","0.00","0.13","327","0.12","0.00","0.13","325","0.48"
-"Middle River at Argyle, MN","mobilizing","0.49","0.16","0.00","0.11","99","0.17","0.00","0.10","96","3.79"
-"Snake River above Warren, MN","mobilizing","0.44","0.22","0.00","0.12","78","0.21","0.00","0.11","77","-5.76"
-"Tamarac River nr Florian, CSAH1","mobilizing","0.73","0.18","0.00","0.14","111","0.26","0.00","0.17","101","41.22"
-"Tamarac River nr Stephen, CSAH22","mobilizing","0.38","0.25","0.00","0.29","289","0.24","0.00","0.27","287","-2.40"
-"Two Rivers nr Hallock, CSAH16","mobilizing","0.46","0.29","0.00","0.35","303","0.27","0.00","0.30","294","-5.38"
-"South Branch Two Rivers at Hallock, MN175","mobilizing","0.46","0.21","0.00","0.11","104","0.28","0.00","0.14","100","33.96"
-"South Branch Two Rivers at Lake Bronson, MN","mobilizing","0.46","0.17","0.01","0.07","89","0.17","0.02","0.06","86","1.82"
-"Kawishiwi River nr Winton, CSAH18","chemodynamic","1.21","-0.12","0.08","0.02","143","-0.16","0.02","0.04","138","34.45"
-"Stony River nr Babbitt, Tomahawk Rd","chemodynamic","0.90","0.04","0.70","0.00","76","-0.13","0.33","0.01","70","-419.25"
-"Little Fork River nr Linden Grove, TH73","chemodynamic","0.36","-0.05","0.35","0.02","50","-0.02","0.79","0.00","46","-65.46"
-"Little Fork River at Little Fork, MN","chemodynamic","0.49","0.02","0.62","0.00","251","-0.04","0.27","0.01","240","-336.91"
-"Little Fork River nr Littlefork, MN65","chemodynamic","0.49","-0.01","0.88","0.00","113","-0.05","0.36","0.01","105","598.71"
-"Big Fork River nr Bigfork, MN6","chemodynamic","1.01","-0.04","0.62","0.00","116","-0.01","0.91","0.00","102","-70.13"
-"Big Fork River at Big Falls, MN","mobilizing","0.61","0.16","0.00","0.06","264","0.12","0.01","0.03","250","-26.35"
-"Big Fork River nr Craigville, MN6","mobilizing","0.73","0.22","0.00","0.07","112","0.15","0.10","0.03","102","-32.38"
-"East Fork Rapid River nr Clementson, CSAH18","diluting","0.52","-0.18","0.00","0.18","93","-0.14","0.01","0.07","85","-24.78"
-"Rapid River at Clementson, MN11","mobilizing","0.51","0.04","0.05","0.01","309","0.01","0.66","0.00","296","-74.51"
-"Split Rock Creek nr Jasper, 201st St","mobilizing","0.52","0.60","0.00","0.50","171","0.59","0.00","0.47","165","-2.05"
-"Pipestone Creek nr Pipestone, CSAH13","mobilizing","0.55","0.60","0.00","0.55","73","0.71","0.00","0.56","66","18.10"
-"Rock River at Luverne, CR4","mobilizing","0.64","0.71","0.00","0.52","194","0.71","0.00","0.51","190","0.10"
+"Station_name","Station_number","Behavior","CVc.CVq","Slope1","p1","R2v1","n1","Slope2","p2","R2v2","n2","Pct_slope_change"
+"Brule River nr Hovland, MN61","01022001","chemodynamic",0.94,0.14,0.17,0.1,21,0.14,0.2,0.09,20,2.09
+"Poplar River nr Lutsen, 0.2mi US of MN61","01063003","chemodynamic",0.75,0.05,0.2,0.01,167,0.04,0.42,0,160,-29.4
+"Baptism River nr Beaver Bay, MN61","01092001","chemodynamic",0.66,0.04,0.21,0.01,184,0.05,0.14,0.01,175,30.8
+"Beaver River nr Beaver Bay, 1.2mi us of MN61","02006003","chemodynamic",0.51,0.09,0.2,0.04,48,0.07,0.42,0.02,44,-24.03
+"Big Sucker Creek nr Palmers, CR258","02031002","chemodynamic",0.6,0.03,0.4,0,162,0.01,0.71,0,158,-54.47
+"St. Louis River at Floodwood, CSAH8","03034001","mobilizing",0.99,0.24,0,0.09,87,0.3,0,0.12,82,21.11
+"St. Louis River nr Forbes, US53","03115001","mobilizing",0.58,0.15,0.01,0.06,120,0.13,0.05,0.03,111,-13.42
+"Second Creek nr Aurora, 0.6mi us of CSAH110","03150001","mobilizing",1.48,0.18,0.04,0.04,108,0.2,0.06,0.04,99,8.43
+"St. Louis River at Scanlon, MN","03174001","mobilizing",1.08,0.24,0,0.11,138,0.2,0,0.06,127,-16.9
+"Cloquet River nr Brimson, CSAH44","04012001","chemodynamic",0.62,-0.03,0.75,0,80,-0.13,0.29,0.02,73,325.35
+"Cloquet River nr Burnett, CR694","04048001","chemodynamic",1.04,0.03,0.59,0,142,-0.02,0.77,0,129,-165.87
+"Nemadji River nr Pleasant Valley, MN23","05011001","mobilizing",0.88,0.3,0,0.31,68,0.28,0,0.26,62,-7.72
+"Mississippi River nr Bemidji, CSAH11","07062001","chemodynamic",1.13,-0.22,0.18,0.04,44,-0.19,0.32,0.03,41,-16.08
+"Mississippi River nr Bemidji, MN","07115001","chemodynamic",1.89,-0.02,0.92,0,42,-0.12,0.66,0.01,38,449.62
+"Leech Lake River nr Ball Club, CR139","08034001","chemodynamic",1.63,0.05,0.68,0,77,0.05,0.76,0,69,-13.76
+"Boy River nr Boy River, CSAH53","08046001","chemodynamic",1.77,0.28,0.09,0.06,49,0.29,0.14,0.05,44,0.7
+"Prairie River nr Taconite, MN","09020001","chemodynamic",0.56,-0.13,0.08,0.05,59,-0.18,0.05,0.08,53,33.85
+"Mississippi River at Grand Rapids, MN","09064001","mobilizing",1.32,0.27,0,0.06,184,0.42,0,0.11,171,56.08
+"Swan River nr Jacobson, CR438","09065001","chemodynamic",0.94,-0.19,0.2,0.03,55,-0.22,0.24,0.03,51,14.27
+"Swan River nr Sobieski, MN238","10065002","mobilizing",1.06,0.52,0,0.26,62,0.57,0,0.27,59,9.49
+"Pine River nr Jenkins, CSAH15","11015001","chemodynamic",0.62,0.23,0.21,0.08,22,0.36,0.1,0.15,20,60.81
+"Leaf River nr Staples, CSAH29","13058001","mobilizing",0.54,0.23,0,0.15,181,0.23,0,0.14,174,-0.59
+"Long Prairie River at Philbrook, 313th Ave","14027002","mobilizing",0.71,0.11,0.02,0.02,279,0.1,0.04,0.02,274,-5.65
+"Long Prairie River at Long Prairie, MN","14051001","mobilizing",1.05,0.41,0,0.14,60,0.44,0,0.16,59,7.12
+"Two Rivers nr Bowlus, 40th St","15067002","chemodynamic",0.88,-0.16,0.47,0.03,21,-0.16,0.47,0.03,21,0
+"Sauk River nr St. Martin, CR12","16051001","mobilizing",1.27,0.83,0,0.3,60,1.01,0,0.37,56,21.66
+"Clearwater River nr Clearwater, CR145","17008003","chemodynamic",1.22,-0.12,0.44,0.01,59,-0.28,0.1,0.05,56,137.88
+"Elk River nr Big Lake, MN","17046001","mobilizing",1.12,0.44,0.02,0.09,63,0.5,0.01,0.11,61,11.55
+"St. Francis River nr Big Lake, 164th St","17049003","chemodynamic",0.78,-0.17,0.27,0.02,61,-0.16,0.32,0.02,56,-2.19
+"Middle Fork Crow River nr Manannah, CSAH30","18053001","mobilizing",1.57,0.91,0,0.28,70,0.83,0,0.25,67,-8.82
+"North Fork Crow River nr Cokato, CSAH4","18083001","mobilizing",1.49,0.9,0,0.19,74,1.02,0,0.21,71,14.2
+"North Fork Crow River nr Rockford, Farmington Ave","18088001","mobilizing",1.05,0.33,0,0.07,206,0.32,0,0.06,202,-4.36
+"South Fork Crow River at Delano, Bridge Ave","19001001","mobilizing",0.53,0.1,0.05,0.02,212,0.12,0.03,0.02,206,16.77
+"Buffalo Creek nr Glencoe, CSAH1","19043001","chemodynamic",0.95,-0.05,0.56,0,71,0.09,0.39,0.01,68,-260.73
+"West Branch Rum River nr Princeton, CR102","21040002","chemodynamic",0.33,0.15,0.12,0.1,25,0.15,0.12,0.1,25,0
+"Rum River at Anoka,headwater side of dam","21101002","mobilizing",0.72,0.37,0,0.14,171,0.38,0,0.14,170,1.48
+"Minnesota River nr Lac qui Parle, MN","22007001","mobilizing",0.9,0.31,0.01,0.05,165,0.35,0,0.06,162,12.09
+"Yellow Bank River nr Odessa, CSAH40","22012001","mobilizing",0.52,0.55,0,0.45,177,0.56,0,0.44,173,1.26
+"Pomme De Terre River at Appleton, MN","23007001","mobilizing",1.07,0.95,0,0.33,166,0.94,0,0.33,164,-0.47
+"Pomme de Terre River nr Hoffman, CR76","23054001","mobilizing",1.94,0.91,0,0.25,110,1.25,0,0.32,103,38.26
+"Lac qui Parle River nr Lac qui Parle, CSAH31","24023001","mobilizing",0.71,0.49,0,0.33,186,0.49,0,0.31,181,0.31
+"Lac qui Parle River nr Providence, CSAH23","24053001","mobilizing",0.49,0.58,0,0.4,72,0.7,0,0.44,69,20.68
+"West Branch Lac qui Parle River at Dawson, Diagonal St","24059001","mobilizing",0.47,0.25,0,0.12,64,0.42,0,0.22,60,67.62
+"Hawk Creek nr Maynard, MN23","25024001","chemostatic",0.3,0.34,0,0.3,120,0.34,0,0.29,115,2.35
+"Hawk Creek nr Granite Falls, CR52","25037001","mobilizing",0.51,0.5,0,0.37,375,0.44,0,0.31,363,-11.18
+"Beaver Creek nr Beaver Falls, CSAH2","25053002","mobilizing",0.34,0.42,0,0.36,113,0.45,0,0.37,107,7.7
+"Yellow Medicine River nr Granite Falls, MN","25075001","mobilizing",0.7,0.35,0,0.25,257,0.34,0,0.23,249,-2.22
+"Yellow Medicine River nr Hanley Falls, CR18","25087001","mobilizing",0.7,0.46,0,0.34,119,0.48,0,0.3,112,3.82
+"Spring Creek nr Hanley Falls, 480th St","25088001","chemodynamic",0.49,-0.07,0.26,0.01,106,0.02,0.77,0,99,-133.05
+"Chippewa River nr Clontarf, CSAH22","26005001","mobilizing",1.51,0.94,0,0.28,123,1.03,0,0.29,118,10.1
+"Shakopee Creek nr Benson, 20th Ave SW","26038001","mobilizing",0.75,0.46,0,0.13,135,0.76,0,0.28,130,64.74
+"Chippewa River nr Milan, MN40","26057001","mobilizing",1.33,0.65,0,0.29,304,0.68,0,0.28,295,4.66
+"East Branch Chippewa River nr Benson, CR78","26088001","mobilizing",0.91,0.44,0,0.13,119,0.69,0,0.24,113,57.36
+"Redwood River nr Redwood Falls, MN","27035001","diluting",0.66,-0.1,0,0.02,327,-0.2,0,0.1,316,96.5
+"Redwood River at Russell, CR15","27043001","mobilizing",0.61,0.28,0,0.12,104,0.34,0,0.13,97,21.16
+"Minnesota River at Morton, MN","28012001","mobilizing",0.77,0.26,0,0.06,299,0.28,0,0.07,292,9.18
+"Minnesota River at Judson, CSAH42","28054001","mobilizing",0.79,0.52,0,0.21,433,0.53,0,0.19,419,1.36
+"Seven Mile Creek nr St. Peter, 0.6mi us of US169","28063003","mobilizing",0.56,0.41,0,0.39,326,0.4,0,0.33,304,-2.53
+"Cottonwood River nr New Ulm, MN68","29001001","mobilizing",0.73,0.62,0,0.49,389,0.6,0,0.44,375,-3.08
+"Sleepy Eye Creek nr Cobden, CR8","29011001","mobilizing",0.51,0.42,0,0.44,118,0.43,0,0.4,110,3.6
+"Cottonwood River nr Leavenworth, CR8","29022001","mobilizing",0.91,0.46,0,0.35,136,0.47,0,0.27,130,1.75
+"Blue Earth River nr Winnebago, CSAH12","30025001","mobilizing",0.71,0.47,0,0.27,139,0.5,0,0.22,131,6.3
+"East Branch Blue Earth River at Blue Earth, CSAH16","30046002","mobilizing",0.84,0.2,0,0.06,140,0.29,0,0.08,132,41.42
+"Blue Earth River nr Rapidan, MN","30092001","mobilizing",0.74,0.62,0,0.45,437,0.64,0,0.41,418,1.69
+"South Fork Watonwan River nr Madelia, CSAH13","31021001","mobilizing",0.94,0.21,0,0.08,123,0.31,0,0.13,117,46.6
+"Watonwan River nr La Salle, CSAH3","31028001","mobilizing",0.44,0.22,0,0.12,140,0.3,0,0.18,134,38
+"Watonwan River nr Garden City, CSAH13","31051001","mobilizing",0.66,0.45,0,0.38,360,0.42,0,0.32,345,-6.66
+"Maple River nr Sterling Center, CR18","32062001","mobilizing",0.34,0.24,0,0.22,269,0.33,0,0.26,254,36.51
+"Big Cobb River nr Beauford, CSAH16","32071001","mobilizing",0.56,0.35,0,0.2,243,0.47,0,0.2,225,32.66
+"Maple River nr Rapidan, CR35","32072001","mobilizing",0.37,0.56,0,0.5,216,0.62,0,0.49,205,11.2
+"Little Beauford Ditch nr Beauford, MN22","32073001","mobilizing",0.36,0.27,0,0.18,198,0.42,0,0.32,184,57.82
+"Le Sueur River nr Rapidan, CR8","32076001","mobilizing",0.43,0.62,0,0.5,269,0.67,0,0.45,252,7.11
+"Le Sueur River nr Rapidan, MN","32077001","mobilizing",0.59,0.56,0,0.46,478,0.55,0,0.42,459,-0.76
+"Le Sueur River at St. Clair, CSAH28","32079001","mobilizing",0.34,0.32,0,0.21,179,0.38,0,0.2,165,21.25
+"High Island Creek nr Arlington, CR9","33075001","chemodynamic",0.78,0.09,0.12,0.02,100,0.14,0.07,0.03,95,54.04
+"High Island Creek nr Henderson, CSAH6","33091001","mobilizing",0.79,0.36,0,0.2,96,0.33,0,0.11,88,-10.11
+"Kettle River nr Willow River, Long Lake Rd","35051002","chemodynamic",0.52,-0.03,0.89,0,25,-0.03,0.89,0,25,0
+"Snake River nr Pine City, MN","36076001","mobilizing",0.57,0.23,0,0.11,213,0.22,0,0.1,206,-4.32
+"Sunrise River at Sunrise, CR88","37030001","chemodynamic",0.51,-0.04,0.53,0,90,-0.02,0.81,0,86,-57.9
+"Wells Creek nr Frontenac, US61","38006002","mobilizing",1.57,1.26,0,0.59,56,1.26,0,0.58,54,-0.52
+"Cannon River at Welch, MN","39004002","mobilizing",1.07,0.49,0,0.09,119,0.68,0,0.17,113,37.33
+"Cannon River at Morristown, CSAH16","39091001","chemodynamic",0.81,-0.25,0.07,0.06,58,-0.2,0.18,0.03,56,-20.19
+"Straight River nr Faribault, MN","39101001","mobilizing",0.5,0.34,0,0.28,111,0.35,0,0.28,109,2.89
+"Whitewater River nr Beaver, CSAH30","40016001","mobilizing",1.28,0.82,0,0.53,206,0.83,0,0.53,201,0.52
+"North Fork Whitewater River at Elba, Whitewater Dr","40017002","mobilizing",0.99,0.93,0,0.68,82,0.94,0,0.68,80,1.08
+"North Fork Zumbro River nr Mazeppa, CSAH7","41006001","mobilizing",0.9,0.58,0,0.4,99,0.6,0,0.39,95,2.88
+"Zumbro River at Kellogg, US61","41043001","mobilizing",1.03,0.59,0,0.38,229,0.6,0,0.37,220,2.57
+"South Fork Zumbro River nr Oronoco, CR121","41049001","mobilizing",0.86,0.18,0,0.06,126,0.23,0,0.09,120,31.7
+"South Branch Middle Fork Zumbro River nr Oronoco,5th St","41071002","mobilizing",0.59,0.49,0,0.39,103,0.52,0,0.4,100,6.68
+"Middle Fork Zumbro River nr Oronoco,5th St","41071003","mobilizing",0.75,0.58,0,0.5,127,0.62,0,0.51,119,6.6
+"South Branch Root River at Lanesboro, Rochelle Ave N","43049001","mobilizing",1.05,0.79,0,0.47,127,0.8,0,0.45,120,1
+"Middle Branch Root River nr Fillmore, CSAH5","43076001","mobilizing",0.72,0.53,0,0.32,121,0.6,0,0.33,113,12.67
+"Cedar River nr Austin, MN","48020001","diluting",0.57,-0.25,0,0.19,265,-0.22,0,0.14,256,-12.34
+"Turtle Creek at Austin, 43rd St","48027001","mobilizing",0.92,0.58,0,0.21,103,0.72,0,0.24,94,23.05
+"Shell Rock River nr Gordonsville, CSAH1","49009001","diluting",1.69,-0.73,0,0.29,192,-0.73,0,0.28,189,-0.47
+"West Fork Des Moines River nr Avoca, CSAH6","51026001","mobilizing",0.69,0.6,0,0.33,77,0.8,0,0.41,72,34.59
+"West Fork Des Moines River at Jackson, River St","51107001","chemodynamic",1.57,-0.04,0.59,0,165,-0.05,0.56,0,160,16.04
+"Bois de Sioux River nr Doran, MN","54018001","mobilizing",0.32,0.23,0,0.26,426,0.24,0,0.25,414,2.88
+"Mustinka River nr Norcross, MN9","55044003","mobilizing",0.58,0.41,0,0.2,91,0.62,0,0.3,85,51.09
+"Twelvemile Creek nr Wheaton, CSAH14","55065001","mobilizing",0.32,0.15,0.02,0.07,84,0.33,0,0.2,79,117.23
+"Pelican River nr Fergus Falls, MN210","56048002","mobilizing",1.27,0.49,0.01,0.09,77,0.6,0,0.11,72,23.7
+"Otter Tail River nr Elizabeth, MN","56050001","chemodynamic",3.18,0.15,0.32,0.01,70,0.21,0.23,0.02,63,41.57
+"Otter Tail River at Breckenridge, CSAH16","56105001","mobilizing",3.26,1.21,0,0.22,231,1.35,0,0.24,220,11.46
+"Red River of the North nr Kragnes, CSAH26","57026001","chemodynamic",0.32,-0.02,0.46,0,376,0,0.89,0,369,-80.69
+"Buffalo River nr Georgetown, CR108","58033001","mobilizing",0.32,0.3,0,0.25,438,0.32,0,0.26,427,7.98
+"Buffalo River nr Glyndon, CSAH19","58048002","mobilizing",0.5,0.4,0,0.28,73,0.46,0,0.32,70,15.25
+"South Branch Buffalo River nr Glyndon, 28th Ave S","58050001","chemostatic",0.28,0.2,0,0.17,105,0.29,0,0.24,98,49.53
+"Buffalo River nr Hawley, MN","58059001","mobilizing",0.53,0.4,0,0.27,97,0.43,0,0.28,93,6.76
+"Wild Rice River nr Mahnomen, CSAH25","60029001","mobilizing",0.73,0.22,0.04,0.1,43,0.36,0.03,0.13,38,60.21
+"Wild Rice River at Twin Valley, MN","60088001","mobilizing",0.75,0.58,0,0.49,57,0.55,0,0.39,53,-3.98
+"Wild Rice River at Hendrum, MN","60112001","mobilizing",0.48,0.43,0,0.36,402,0.46,0,0.36,388,7.08
+"S Br. Wild Rice River at CR27 nr Felton, MN","60124001","mobilizing",0.32,0.29,0,0.29,48,0.3,0,0.26,44,2.91
+"Sandhill River nr Fertile, 450th St SW","61006002","mobilizing",0.7,0.47,0,0.23,104,0.52,0,0.23,94,9.61
+"Sand Hill River at Climax, MN, US-75","61039001","mobilizing",0.41,0.5,0,0.43,331,0.51,0,0.43,322,2.12
+"Red Lake River at High Landing nr Goodridge, MN","63007001","mobilizing",4.74,0.65,0.01,0.11,59,0.9,0,0.17,53,37.65
+"Red Lake River at Red Lake Falls, CR13","63025001","mobilizing",1.47,0.93,0,0.42,121,1,0,0.39,113,6.8
+"Red Lake River at Fisher, MN","63078001","mobilizing",0.81,0.71,0,0.34,383,0.77,0,0.35,366,7.81
+"Thief River nr Thief River Falls, MN","65014001","mobilizing",0.83,0.14,0,0.05,421,0.13,0,0.04,410,-1.92
+"Thief River downstream of CSAH 7, 6 mi E of Holt","65017001","mobilizing",1.53,0.11,0.05,0.02,161,0.06,0.34,0.01,155,-45.73
+"Mud River nr Grygla, MN89","65041001","mobilizing",1.01,0.29,0,0.17,157,0.4,0,0.23,142,40.11
+"Clearwater River at Plummer, MN","66041001","mobilizing",0.73,0.44,0,0.15,99,0.55,0,0.19,94,24.76
+"Lost River nr Brooks, CR119","66048001","chemodynamic",0.68,0.11,0.24,0.02,79,0.42,0,0.15,67,273.75
+"Clearwater River at Red Lake Falls, MN","66050001","mobilizing",0.55,0.41,0,0.18,396,0.37,0,0.14,380,-10.15
+"Snake River nr Big Woods, MN220","68011001","chemostatic",0.26,0.12,0,0.13,327,0.12,0,0.13,325,0.48
+"Middle River at Argyle, MN","68017001","mobilizing",0.49,0.16,0,0.11,99,0.17,0,0.1,96,3.79
+"Snake River above Warren, MN","68031002","mobilizing",0.44,0.22,0,0.12,78,0.21,0,0.11,77,-5.76
+"Tamarac River nr Florian, CSAH1","69036001","mobilizing",0.73,0.18,0,0.14,111,0.26,0,0.17,101,41.22
+"Tamarac River nr Stephen, CSAH22","69051001","mobilizing",0.38,0.25,0,0.29,289,0.24,0,0.27,287,-2.4
+"Two Rivers nr Hallock, CSAH16","70012001","mobilizing",0.46,0.29,0,0.35,303,0.27,0,0.3,294,-5.38
+"South Branch Two Rivers at Hallock, MN175","70018001","mobilizing",0.46,0.21,0,0.11,104,0.28,0,0.14,100,33.96
+"South Branch Two Rivers at Lake Bronson, MN","70033001","mobilizing",0.46,0.17,0.01,0.07,89,0.17,0.02,0.06,86,1.82
+"Kawishiwi River nr Winton, CSAH18","72030001","chemodynamic",1.21,-0.12,0.08,0.02,143,-0.16,0.02,0.04,138,34.45
+"Stony River nr Babbitt, Tomahawk Rd","72045001","chemodynamic",0.9,0.04,0.7,0,76,-0.13,0.33,0.01,70,-419.25
+"Little Fork River nr Linden Grove, TH73","76023001","chemodynamic",0.36,-0.05,0.35,0.02,50,-0.02,0.79,0,46,-65.46
+"Little Fork River at Little Fork, MN","76090001","chemodynamic",0.49,0.02,0.62,0,251,-0.04,0.27,0.01,240,-336.91
+"Little Fork River nr Littlefork, MN65","76099001","chemodynamic",0.49,-0.01,0.88,0,113,-0.05,0.36,0.01,105,598.71
+"Big Fork River nr Bigfork, MN6","77031001","chemodynamic",1.01,-0.04,0.62,0,116,-0.01,0.91,0,102,-70.13
+"Big Fork River at Big Falls, MN","77069001","mobilizing",0.61,0.16,0,0.06,264,0.12,0.01,0.03,250,-26.35
+"Big Fork River nr Craigville, MN6","77107001","mobilizing",0.73,0.22,0,0.07,112,0.15,0.1,0.03,102,-32.38
+"East Fork Rapid River nr Clementson, CSAH18","78006001","diluting",0.52,-0.18,0,0.18,93,-0.14,0.01,0.07,85,-24.78
+"Rapid River at Clementson, MN11","78007001","mobilizing",0.51,0.04,0.05,0.01,309,0.01,0.66,0,296,-74.51
+"Split Rock Creek nr Jasper, 201st St","82015001","mobilizing",0.52,0.6,0,0.5,171,0.59,0,0.47,165,-2.05
+"Pipestone Creek nr Pipestone, CSAH13","82034003","mobilizing",0.55,0.6,0,0.55,73,0.71,0,0.56,66,18.1
+"Rock River at Luverne, CR4","83016001","mobilizing",0.64,0.71,0,0.52,194,0.71,0,0.51,190,0.1

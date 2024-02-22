@@ -1,144 +1,144 @@
 "Station_name","Impacted","WWTPAllDensWs","Late Summer","Fall","Early Winter","Late Winter","Spring","Early Summer"
-"1","Brule River nr Hovland, MN61","Less Impacted",0,0.002,0.002,NA,NA,NA,NA
-"2","Poplar River nr Lutsen, 0.2mi US of MN61","Less Impacted",0.0034,0.003,0.003,0.004,0.003,0.031,0.002
-"3","Baptism River nr Beaver Bay, MN61","Less Impacted",0.0028,0.004,NA,0.006,0.003,NA,0.004
-"4","Beaver River nr Beaver Bay, 1.2mi us of MN61","Impacted",0.0031,0.003,0.003,NA,NA,NA,0.005
-"5","Big Sucker Creek nr Palmers, CR258","Less Impacted",0,0.003,NA,0.011,0.009,NA,0.003
-"6","St. Louis River at Floodwood, CSAH8","Impacted",0.0042,0.011,0.006,NA,NA,0.002,0.004
-"7","St. Louis River nr Forbes, US53","Impacted",0.0056,0.004,0.003,NA,NA,0.003,0.003
-"8","Second Creek nr Aurora, 0.6mi us of CSAH110","Impacted",0,0.004,0.002,NA,0.006,0.003,0.001
-"9","St. Louis River at Scanlon, MN","Impacted",0.0034,0.004,0.003,0.007,0.002,0.002,0.009
-"10","Cloquet River nr Brimson, CSAH44","Less Impacted",0,0.004,NA,NA,NA,0.003,0.003
-"11","Cloquet River nr Burnett, CR694","Less Impacted",0.001,0.003,0.003,0.008,0.004,0.005,0.005
-"12","Nemadji River nr Pleasant Valley, MN23","Impacted",0,0.005,0.002,NA,NA,NA,0.004
-"13","Mississippi River nr Bemidji, CSAH11","Impacted",0.001,0.03,0.02,NA,NA,NA,0.028
-"14","Mississippi River nr Bemidji, MN","Impacted",0.0025,0.003,0.002,NA,NA,0.002,0.003
-"15","Leech Lake River nr Ball Club, CR139","Impacted",0.0014,0.004,0.003,0.012,0.004,0.004,0.003
-"16","Boy River nr Boy River, CSAH53","Less Impacted",0.0013,0.002,0.004,NA,NA,0.002,0.003
-"17","Prairie River nr Taconite, MN","Impacted",0,0.005,0.005,NA,0.006,0.006,NA
-"18","Mississippi River at Grand Rapids, MN","Impacted",0.0014,0.005,0.007,0.005,0.003,0.003,0.003
-"19","Swan River nr Jacobson, CR438","Impacted",0.0119,0.018,0.021,NA,NA,0.003,0.024
-"20","Swan River nr Sobieski, MN238","Impacted",0.0022,0.021,0.018,NA,NA,NA,NA
-"21","Pine River nr Jenkins, CSAH15","Impacted",0,0.013,NA,NA,NA,NA,0.017
-"22","Leaf River nr Staples, CSAH29","Impacted",0.0031,0.022,NA,0.013,0.025,NA,0.023
-"23","Long Prairie River at Philbrook, 313th Ave","Impacted",0.0047,0.023,0.029,0.024,0.022,0.086,0.035
-"24","Long Prairie River at Long Prairie, MN","Impacted",0.0055,0.034,0.014,NA,0.016,0.014,0.028
-"25","Two Rivers nr Bowlus, 40th St","Impacted",0.0078,NA,NA,NA,NA,NA,0.072
-"26","Sauk River nr St. Martin, CR12","Impacted",0.0048,0.059,0.015,NA,NA,0.018,0.051
-"27","Clearwater River nr Clearwater, CR145","Impacted",0.0023,0.003,0.021,NA,0.011,0.008,0.008
-"28","Elk River nr Big Lake, MN","Impacted",0.0029,0.018,0.021,NA,0.005,0.002,0.027
-"29","St. Francis River nr Big Lake, 164th St","Impacted",0,0.013,0.002,NA,0.022,NA,0.02
-"30","Middle Fork Crow River nr Manannah, CSAH30","Impacted",0.0057,0.012,0.007,NA,0.017,0.01,0.022
-"31","North Fork Crow River nr Cokato, CSAH4","Impacted",0.0042,0.031,0.006,NA,0.004,0.005,0.07
-"32","North Fork Crow River nr Rockford, Farmington Ave","Impacted",0.0046,0.02,0.021,0.031,0.045,NA,0.057
-"33","South Fork Crow River at Delano, Bridge Ave","Impacted",0.0042,0.182,0.239,0.168,0.218,0.025,NA
-"34","Buffalo Creek nr Glencoe, CSAH1","Impacted",0.0041,0.793,1.595,NA,0.047,0.154,0.273
-"35","West Branch Rum River nr Princeton, CR102","Impacted",0.0062,NA,0.048,NA,NA,NA,NA
-"36","Rum River at Anoka,headwater side of dam","Impacted",0.0044,0.036,NA,0.01,0.015,0.008,0.043
-"37","Minnesota River nr Lac qui Parle, MN","Impacted",0.0033,0.085,0.055,0.094,0.126,NA,0.022
-"38","Yellow Bank River nr Odessa, CSAH40","Impacted",0.0042,0.03,0.017,0.021,0.31,NA,NA
-"39","Pomme De Terre River at Appleton, MN","Impacted",0.0022,0.029,0.008,0.024,0.082,NA,0.025
-"40","Pomme de Terre River nr Hoffman, CR76","Impacted",0.0019,0.013,0.01,NA,NA,NA,0.012
-"41","Lac qui Parle River nr Lac qui Parle, CSAH31","Impacted",0.0044,0.019,0.005,0.028,0.063,0.282,0.042
-"42","Lac qui Parle River nr Providence, CSAH23","Impacted",0.0041,0.023,0.01,NA,NA,NA,NA
-"43","West Branch Lac qui Parle River at Dawson, Diagonal St","Impacted",0.0025,0.083,0.023,NA,NA,NA,NA
-"44","Hawk Creek nr Maynard, MN23","Impacted",0.0033,0.051,0.034,NA,0.081,0.045,0.056
-"45","Hawk Creek nr Granite Falls, CR52","Impacted",0.003,0.01,0.013,0.083,0.158,0.002,0.003
-"46","Beaver Creek nr Beaver Falls, CSAH2","Impacted",0.004,0.053,0.041,NA,0.002,0.136,0.048
-"47","Yellow Medicine River nr Granite Falls, MN","Impacted",0.0023,0.034,0.012,0.02,0.35,0.009,NA
-"48","Yellow Medicine River nr Hanley Falls, CR18","Impacted",9e-04,0.019,0.027,NA,0.002,0.006,NA
-"49","Spring Creek nr Hanley Falls, 480th St","Impacted",0.006,0.293,0.177,NA,0.037,0.121,0.526
-"50","Chippewa River nr Clontarf, CSAH22","Impacted",0.0035,0.016,0.009,NA,0.01,0.006,0.022
-"51","Shakopee Creek nr Benson, 20th Ave SW","Impacted",0,0.141,0.112,NA,0.024,0.006,0.114
-"52","Chippewa River nr Milan, MN40","Impacted",0.0019,0.022,0.009,0.02,0.027,NA,NA
-"53","East Branch Chippewa River nr Benson, CR78","Impacted",8e-04,0.048,0.019,NA,NA,NA,0.043
-"54","Redwood River nr Redwood Falls, MN","Impacted",0.0031,0.099,0.731,1.175,1.247,0.268,0.005
-"55","Redwood River at Russell, CR15","Impacted",0,0.035,0.015,NA,0.083,0.018,NA
-"56","Minnesota River at Morton, MN","Impacted",0.003,0.046,0.058,0.098,0.141,NA,0.05
-"57","Minnesota River at Judson, CSAH42","Impacted",0.0031,0.027,0.028,0.04,0.08,NA,0.01
-"58","Seven Mile Creek nr St. Peter, 0.6mi us of US169","Impacted",0,0.016,0.012,NA,0.027,0.008,0.015
-"59","Cottonwood River nr New Ulm, MN68","Impacted",0.0033,0.007,0.007,0.016,0.048,0.01,0.007
-"60","Sleepy Eye Creek nr Cobden, CR8","Impacted",0,0.022,0.021,NA,NA,0.029,NA
-"61","Cottonwood River nr Leavenworth, CR8","Impacted",0.0035,0.013,0.01,NA,NA,0.014,0.022
-"62","Blue Earth River nr Winnebago, CSAH12","Impacted",0.0045,0.027,0.025,NA,0.02,NA,NA
-"63","East Branch Blue Earth River at Blue Earth, CSAH16","Impacted",0.0026,0.071,0.062,NA,0.024,NA,0.107
-"64","Blue Earth River nr Rapidan, MN","Impacted",0.0043,0.015,0.006,0.015,0.028,0.005,0.004
-"65","South Fork Watonwan River nr Madelia, CSAH13","Impacted",0.0039,0.052,0.05,NA,0.017,NA,NA
-"66","Watonwan River nr La Salle, CSAH3","Impacted",0.0046,0.073,0.049,NA,0.027,0.03,NA
-"67","Watonwan River nr Garden City, CSAH13","Impacted",0.005,0.016,0.022,0.017,0.152,0.002,0.011
-"68","Maple River nr Sterling Center, CR18","Impacted",0.0037,0.071,0.105,NA,0.002,NA,0.069
-"69","Big Cobb River nr Beauford, CSAH16","Impacted",0.0064,0.041,0.042,NA,0.005,0.037,0.048
-"70","Maple River nr Rapidan, CR35","Impacted",0.0046,0.02,0.038,NA,NA,NA,0.007
-"71","Little Beauford Ditch nr Beauford, MN22","Impacted",0,0.153,0.148,NA,NA,0.025,0.083
-"72","Le Sueur River nr Rapidan, CR8","Impacted",0.0052,0.029,0.027,NA,0.011,0.004,0.017
-"73","Le Sueur River nr Rapidan, MN","Impacted",0.0052,0.014,0.012,0.014,0.032,0.011,0.006
-"74","Le Sueur River at St. Clair, CSAH28","Impacted",0.0065,0.058,0.128,NA,0.094,0.023,0.101
-"75","High Island Creek nr Arlington, CR9","Impacted",0,0.079,0.254,NA,0.616,0.037,0.055
-"76","High Island Creek nr Henderson, CSAH6","Impacted",0.0016,0.019,0.037,NA,0.031,0.023,0.05
-"77","Snake River nr Pine City, MN","Impacted",0.0027,0.012,NA,0.014,0.02,NA,0.02
-"78","Sunrise River at Sunrise, CR88","Impacted",0.0046,0.037,NA,0.026,0.034,NA,NA
-"79","Wells Creek nr Frontenac, US61","Impacted",0,0.038,0.04,NA,NA,0.032,0.045
-"80","Cannon River at Welch, MN","Impacted",0.0072,0.204,0.135,0.009,0.044,0.007,NA
-"81","Cannon River at Morristown, CSAH16","Impacted",0.008,0.362,0.29,NA,0.031,0.121,NA
-"82","Straight River nr Faribault, MN","Impacted",0.0062,0.102,NA,0.069,0.094,NA,NA
-"83","Whitewater River nr Beaver, CSAH30","Impacted",0.0102,0.047,0.039,0.039,0.048,0.028,0.055
-"84","North Fork Whitewater River at Elba, Whitewater Dr","Impacted",0.0111,0.071,0.057,NA,0.049,0.02,0.068
-"85","North Fork Zumbro River nr Mazeppa, CSAH7","Impacted",0.0064,0.057,0.026,NA,0.046,0.069,NA
-"86","Zumbro River at Kellogg, US61","Impacted",0.0084,0.046,0.032,0.033,0.042,NA,NA
-"87","South Fork Zumbro River nr Oronoco, CR121","Impacted",0.0147,0.11,0.077,NA,0.051,NA,NA
-"88","South Branch Middle Fork Zumbro River nr Oronoco,5th St","Impacted",0.0105,0.057,0.025,NA,0.12,NA,NA
-"89","Middle Fork Zumbro River nr Oronoco,5th St","Impacted",0.0056,0.041,0.02,NA,0.085,NA,NA
-"90","South Branch Root River at Lanesboro, Rochelle Ave N","Impacted",0.0095,0.03,0.032,NA,0.035,NA,0.038
-"91","Middle Branch Root River nr Fillmore, CSAH5","Impacted",0.0059,0.039,0.035,NA,NA,NA,NA
-"92","Cedar River nr Austin, MN","Impacted",0.0126,0.525,0.338,0.65,0.954,NA,0.451
-"93","Turtle Creek at Austin, 43rd St","Impacted",0.0078,0.359,0.268,NA,NA,NA,0.044
-"94","Shell Rock River nr Gordonsville, CSAH1","Impacted",0.0121,0.526,0.68,1.159,1.368,NA,NA
-"95","West Fork Des Moines River nr Avoca, CSAH6","Impacted",0.0065,0.014,0.005,NA,NA,0.002,0.012
-"96","West Fork Des Moines River at Jackson, River St","Impacted",0.0068,0.037,0.03,0.342,0.592,0.002,NA
-"97","Bois de Sioux River nr Doran, MN","Impacted",0.0019,0.086,0.066,0.069,0.128,0.034,0.084
-"98","Mustinka River nr Norcross, MN9","Impacted",0,0.083,0.082,NA,NA,0.01,0.004
-"99","Twelvemile Creek nr Wheaton, CSAH14","Impacted",0,0.429,0.113,NA,0.047,0.141,0.206
-"100","Pelican River nr Fergus Falls, MN210","Impacted",0.0031,0.019,0.006,NA,NA,0.008,0.02
-"101","Otter Tail River nr Elizabeth, MN","Impacted",0.0013,0.003,0.002,NA,0.005,0.003,0.002
-"102","Otter Tail River at Breckenridge, CSAH16","Impacted",0.0018,0.016,0.011,0.005,0.01,NA,0.019
-"103","Red River of the North nr Kragnes, CSAH26","Impacted",0.0027,0.275,0.254,0.217,0.332,NA,NA
-"104","Buffalo River nr Georgetown, CR108","Impacted",0.0021,0.093,0.067,0.042,0.052,NA,NA
-"105","Buffalo River nr Glyndon, CSAH19","Impacted",0.004,0.068,0.023,NA,NA,NA,NA
-"106","South Branch Buffalo River nr Glyndon, 28th Ave S","Impacted",8e-04,0.128,0.07,NA,NA,NA,0.131
-"107","Buffalo River nr Hawley, MN","Impacted",0.0012,0.06,0.02,NA,0.09,0.159,NA
-"108","Wild Rice River nr Mahnomen, CSAH25","Impacted",0,0.019,NA,NA,NA,NA,NA
-"109","Wild Rice River at Twin Valley, MN","Impacted",0.0012,0.007,0.009,NA,0.012,NA,NA
-"110","Wild Rice River at Hendrum, MN","Impacted",0.002,0.03,0.031,0.012,0.018,0.015,0.075
-"111","S Br. Wild Rice River at CR27 nr Felton, MN","Impacted",0.006,0.055,0.032,NA,NA,NA,NA
-"112","Sandhill River nr Fertile, 450th St SW","Impacted",0.0016,0.029,0.018,NA,NA,NA,0.052
-"113","Sand Hill River at Climax, MN, US-75","Impacted",8e-04,0.034,0.024,0.014,0.031,0.021,0.058
-"114","Red Lake River at High Landing nr Goodridge, MN","Impacted",0,0.011,0.002,NA,NA,0.002,0.003
-"115","Red Lake River at Red Lake Falls, CR13","Impacted",4e-04,0.004,0.004,NA,NA,0.003,0.023
-"116","Red Lake River at Fisher, MN","Impacted",0.001,0.013,0.006,0.009,0.017,NA,0.034
-"117","Thief River nr Thief River Falls, MN","Impacted",0,0.011,0.012,0.026,0.05,0.036,0.027
-"118","Thief River downstream of CSAH 7, 6 mi E of Holt","Impacted",0,0.007,0.014,NA,0.036,0.002,0.013
-"119","Mud River nr Grygla, MN89","Impacted",0,0.021,0.008,NA,NA,NA,0.029
-"120","Clearwater River at Plummer, MN","Impacted",0.0021,0.043,0.027,NA,NA,0.002,NA
-"121","Lost River nr Brooks, CR119","Impacted",0.0026,0.042,0.085,NA,NA,NA,NA
-"122","Clearwater River at Red Lake Falls, MN","Impacted",0.002,0.009,0.009,0.01,0.04,0.074,0.041
-"123","Snake River nr Big Woods, MN220","Impacted",0.001,0.086,0.068,0.074,0.191,NA,0.227
-"124","Middle River at Argyle, MN","Impacted",0.0016,0.043,0.048,NA,NA,NA,0.062
-"125","Snake River above Warren, MN","Impacted",0,0.013,0.068,NA,NA,0.024,0.166
-"126","Tamarac River nr Florian, CSAH1","Impacted",0,0.011,0.005,NA,NA,0.008,0.022
-"127","Tamarac River nr Stephen, CSAH22","Impacted",0,0.012,NA,0.03,0.198,NA,0.036
-"128","Two Rivers nr Hallock, CSAH16","Impacted",4e-04,0.016,0.016,0.018,0.03,NA,0.014
-"129","South Branch Two Rivers at Hallock, MN175","Impacted",6e-04,0.052,0.016,NA,0.222,NA,0.031
-"130","South Branch Two Rivers at Lake Bronson, MN","Impacted",0,0.104,0.053,NA,0.146,NA,0.065
-"131","Kawishiwi River nr Winton, CSAH18","Less Impacted",0,0.004,0.005,0.007,0.007,0.004,0.001
-"132","Stony River nr Babbitt, Tomahawk Rd","Less Impacted",0,0.003,0.005,NA,0.005,0.003,0.003
-"133","Little Fork River nr Linden Grove, TH73","Impacted",0.0027,0.02,0.018,NA,NA,NA,NA
-"134","Little Fork River at Little Fork, MN","Less Impacted",5e-04,0.004,0.004,0.009,0.015,NA,0.002
-"135","Little Fork River nr Littlefork, MN65","Less Impacted",6e-04,0.007,0.005,NA,NA,NA,0.011
-"136","Big Fork River nr Bigfork, MN6","Less Impacted",0,0.007,NA,NA,NA,NA,0.01
-"137","Big Fork River at Big Falls, MN","Less Impacted",8e-04,0.004,0.003,0.005,0.011,0.024,0.003
-"138","Big Fork River nr Craigville, MN6","Less Impacted",8e-04,0.004,0.004,NA,NA,NA,0.005
-"139","East Fork Rapid River nr Clementson, CSAH18","Less Impacted",0,0.022,NA,NA,NA,0.005,0.02
-"140","Rapid River at Clementson, MN11","Impacted",0,0.004,0.003,0.01,0.014,0.002,0.006
-"141","Split Rock Creek nr Jasper, 201st St","Impacted",0.0036,0.011,0.007,0.014,0.027,NA,NA
-"142","Pipestone Creek nr Pipestone, CSAH13","Impacted",0.0065,0.025,NA,NA,0.013,0.006,0.032
-"143","Rock River at Luverne, CR4","Impacted",0.0055,0.016,0.006,0.02,0.025,0.002,0.038
+"Brule River nr Hovland, MN61","Less Impacted",0,"NA","NA",NA,NA,NA,NA
+"Poplar River nr Lutsen, 0.2mi US of MN61","Less Impacted",0.0034,"0.003","0.003","0.004","0.003","NA","NA"
+"Baptism River nr Beaver Bay, MN61","Less Impacted",0.0028,"0.004",NA,"0.006","0.003",NA,"NA"
+"Beaver River nr Beaver Bay, 1.2mi us of MN61","Impacted",0.0031,"0.003","NA",NA,NA,NA,"NA"
+"Big Sucker Creek nr Palmers, CR258","Less Impacted",0,"0.003",NA,"0.011","0.009",NA,"0.003"
+"St. Louis River at Floodwood, CSAH8","Impacted",0.0042,"0.011","NA",NA,NA,"0.002","NA"
+"St. Louis River nr Forbes, US53","Impacted",0.0056,"0.004","0.003",NA,NA,"0.003","NA"
+"Second Creek nr Aurora, 0.6mi us of CSAH110","Impacted",0,"0.004","0.002",NA,"0.006","NA","NA"
+"St. Louis River at Scanlon, MN","Impacted",0.0034,"0.004","NA","0.007","NA","NA","0.009"
+"Cloquet River nr Brimson, CSAH44","Less Impacted",0,"0.004",NA,NA,NA,"NA","NA"
+"Cloquet River nr Burnett, CR694","Less Impacted",0.001,"0.003","NA","0.008","NA","0.005","0.005"
+"Nemadji River nr Pleasant Valley, MN23","Impacted",0,"0.005","NA",NA,NA,NA,"NA"
+"Mississippi River nr Bemidji, CSAH11","Impacted",0.001,"0.03","NA",NA,NA,NA,"0.028"
+"Mississippi River nr Bemidji, MN","Impacted",0.0025,"0.003","NA",NA,NA,"NA","0.003"
+"Leech Lake River nr Ball Club, CR139","Impacted",0.0014,"0.004","NA","NA","NA","0.004","0.003"
+"Boy River nr Boy River, CSAH53","Less Impacted",0.0013,"0.002","NA",NA,NA,"NA","NA"
+"Prairie River nr Taconite, MN","Impacted",0,"0.005","NA",NA,"0.006","0.006",NA
+"Mississippi River at Grand Rapids, MN","Impacted",0.0014,"0.005","0.007","NA","0.003","0.003","0.003"
+"Swan River nr Jacobson, CR438","Impacted",0.0119,"0.018","NA",NA,NA,"NA","NA"
+"Swan River nr Sobieski, MN238","Impacted",0.0022,"0.021","NA",NA,NA,NA,NA
+"Pine River nr Jenkins, CSAH15","Impacted",0,"NA",NA,NA,NA,NA,"NA"
+"Leaf River nr Staples, CSAH29","Impacted",0.0031,"0.022",NA,"0.013","0.025",NA,"NA"
+"Long Prairie River at Philbrook, 313th Ave","Impacted",0.0047,"0.023","NA","0.024","0.022","NA","0.035"
+"Long Prairie River at Long Prairie, MN","Impacted",0.0055,"NA","NA",NA,"0.016","0.014","NA"
+"Two Rivers nr Bowlus, 40th St","Impacted",0.0078,NA,NA,NA,NA,NA,"NA"
+"Sauk River nr St. Martin, CR12","Impacted",0.0048,"0.059","NA",NA,NA,"0.018","NA"
+"Clearwater River nr Clearwater, CR145","Impacted",0.0023,"0.003","NA",NA,"NA","0.008","NA"
+"Elk River nr Big Lake, MN","Impacted",0.0029,"NA","NA",NA,"NA","NA","0.027"
+"St. Francis River nr Big Lake, 164th St","Impacted",0,"0.013","NA",NA,"NA",NA,"0.02"
+"Middle Fork Crow River nr Manannah, CSAH30","Impacted",0.0057,"0.012","NA",NA,"NA","0.01","0.022"
+"North Fork Crow River nr Cokato, CSAH4","Impacted",0.0042,"0.031","NA",NA,"NA","NA","0.07"
+"North Fork Crow River nr Rockford, Farmington Ave","Impacted",0.0046,"0.02","0.021","0.031","0.045",NA,"NA"
+"South Fork Crow River at Delano, Bridge Ave","Impacted",0.0042,"0.182","0.239","0.168","0.218","NA",NA
+"Buffalo Creek nr Glencoe, CSAH1","Impacted",0.0041,"0.793","NA",NA,"NA","NA","NA"
+"West Branch Rum River nr Princeton, CR102","Impacted",0.0062,NA,"NA",NA,NA,NA,NA
+"Rum River at Anoka,headwater side of dam","Impacted",0.0044,"NA",NA,"0.01","0.015","NA","0.043"
+"Minnesota River nr Lac qui Parle, MN","Impacted",0.0033,"0.085","0.055","0.094","0.126",NA,"NA"
+"Yellow Bank River nr Odessa, CSAH40","Impacted",0.0042,"0.03","NA","0.021","0.31",NA,NA
+"Pomme De Terre River at Appleton, MN","Impacted",0.0022,"NA","NA","0.024","0.082",NA,"NA"
+"Pomme de Terre River nr Hoffman, CR76","Impacted",0.0019,"0.013","0.01",NA,NA,NA,"NA"
+"Lac qui Parle River nr Lac qui Parle, CSAH31","Impacted",0.0044,"0.019","NA","0.028","0.063","NA","0.042"
+"Lac qui Parle River nr Providence, CSAH23","Impacted",0.0041,"0.023","NA",NA,NA,NA,NA
+"West Branch Lac qui Parle River at Dawson, Diagonal St","Impacted",0.0025,"0.083","NA",NA,NA,NA,NA
+"Hawk Creek nr Maynard, MN23","Impacted",0.0033,"0.051","0.034",NA,"NA","NA","0.056"
+"Hawk Creek nr Granite Falls, CR52","Impacted",0.003,"0.01","0.013","0.083","0.158","NA","0.003"
+"Beaver Creek nr Beaver Falls, CSAH2","Impacted",0.004,"0.053","0.041",NA,"NA","NA","NA"
+"Yellow Medicine River nr Granite Falls, MN","Impacted",0.0023,"0.034","0.012","0.02","0.35","NA",NA
+"Yellow Medicine River nr Hanley Falls, CR18","Impacted",9e-04,"0.019","0.027",NA,"NA","NA",NA
+"Spring Creek nr Hanley Falls, 480th St","Impacted",0.006,"0.293","NA",NA,"NA","NA","NA"
+"Chippewa River nr Clontarf, CSAH22","Impacted",0.0035,"0.016","0.009",NA,"NA","NA","NA"
+"Shakopee Creek nr Benson, 20th Ave SW","Impacted",0,"0.141","NA",NA,"0.024","0.006","NA"
+"Chippewa River nr Milan, MN40","Impacted",0.0019,"0.022","0.009","0.02","0.027",NA,NA
+"East Branch Chippewa River nr Benson, CR78","Impacted",8e-04,"0.048","0.019",NA,NA,NA,"0.043"
+"Redwood River nr Redwood Falls, MN","Impacted",0.0031,"0.099","0.731","1.175","1.247","NA","NA"
+"Redwood River at Russell, CR15","Impacted",0,"0.035","0.015",NA,"NA","NA",NA
+"Minnesota River at Morton, MN","Impacted",0.003,"0.046","0.058","0.098","0.141",NA,"NA"
+"Minnesota River at Judson, CSAH42","Impacted",0.0031,"0.027","0.028","0.04","0.08",NA,"0.01"
+"Seven Mile Creek nr St. Peter, 0.6mi us of US169","Impacted",0,"0.016","0.012",NA,"0.027","0.008","0.015"
+"Cottonwood River nr New Ulm, MN68","Impacted",0.0033,"0.007","0.007","0.016","0.048","0.01","0.007"
+"Sleepy Eye Creek nr Cobden, CR8","Impacted",0,"0.022","0.021",NA,NA,"NA",NA
+"Cottonwood River nr Leavenworth, CR8","Impacted",0.0035,"0.013","NA",NA,NA,"NA","NA"
+"Blue Earth River nr Winnebago, CSAH12","Impacted",0.0045,"0.027","0.025",NA,"NA",NA,NA
+"East Branch Blue Earth River at Blue Earth, CSAH16","Impacted",0.0026,"0.071","0.062",NA,"NA",NA,"NA"
+"Blue Earth River nr Rapidan, MN","Impacted",0.0043,"0.015","0.006","0.015","0.028","NA","NA"
+"South Fork Watonwan River nr Madelia, CSAH13","Impacted",0.0039,"0.052","NA",NA,"NA",NA,NA
+"Watonwan River nr La Salle, CSAH3","Impacted",0.0046,"0.073","NA",NA,"NA","NA",NA
+"Watonwan River nr Garden City, CSAH13","Impacted",0.005,"0.016","0.022","0.017","0.152","NA","NA"
+"Maple River nr Sterling Center, CR18","Impacted",0.0037,"0.071","NA",NA,"NA",NA,"NA"
+"Big Cobb River nr Beauford, CSAH16","Impacted",0.0064,"0.041","0.042",NA,"NA","NA","0.048"
+"Maple River nr Rapidan, CR35","Impacted",0.0046,"0.02","0.038",NA,NA,NA,"NA"
+"Little Beauford Ditch nr Beauford, MN22","Impacted",0,"0.153","NA",NA,NA,"0.025","0.083"
+"Le Sueur River nr Rapidan, CR8","Impacted",0.0052,"0.029","0.027",NA,"NA","0.004","0.017"
+"Le Sueur River nr Rapidan, MN","Impacted",0.0052,"0.014","0.012","0.014","0.032","NA","0.006"
+"Le Sueur River at St. Clair, CSAH28","Impacted",0.0065,"0.058","NA",NA,"NA","0.023","0.101"
+"High Island Creek nr Arlington, CR9","Impacted",0,"0.079","NA",NA,"NA","0.037","NA"
+"High Island Creek nr Henderson, CSAH6","Impacted",0.0016,"0.019","NA",NA,"NA","NA","NA"
+"Snake River nr Pine City, MN","Impacted",0.0027,"0.012",NA,"0.014","0.02",NA,"0.02"
+"Sunrise River at Sunrise, CR88","Impacted",0.0046,"0.037",NA,"NA","NA",NA,NA
+"Wells Creek nr Frontenac, US61","Impacted",0,"NA","0.04",NA,NA,"0.032","NA"
+"Cannon River at Welch, MN","Impacted",0.0072,"0.204","NA","0.009","0.044","NA",NA
+"Cannon River at Morristown, CSAH16","Impacted",0.008,"NA","0.29",NA,"NA","0.121",NA
+"Straight River nr Faribault, MN","Impacted",0.0062,"NA",NA,"0.069","NA",NA,NA
+"Whitewater River nr Beaver, CSAH30","Impacted",0.0102,"0.047","0.039","0.039","0.048","NA","NA"
+"North Fork Whitewater River at Elba, Whitewater Dr","Impacted",0.0111,"NA","0.057",NA,"0.049","NA","NA"
+"North Fork Zumbro River nr Mazeppa, CSAH7","Impacted",0.0064,"0.057","0.026",NA,"0.046","NA",NA
+"Zumbro River at Kellogg, US61","Impacted",0.0084,"0.046","NA","0.033","0.042",NA,NA
+"South Fork Zumbro River nr Oronoco, CR121","Impacted",0.0147,"0.11","0.077",NA,"NA",NA,NA
+"South Branch Middle Fork Zumbro River nr Oronoco,5th St","Impacted",0.0105,"0.057","0.025",NA,"NA",NA,NA
+"Middle Fork Zumbro River nr Oronoco,5th St","Impacted",0.0056,"0.041","0.02",NA,"NA",NA,NA
+"South Branch Root River at Lanesboro, Rochelle Ave N","Impacted",0.0095,"0.03","0.032",NA,"NA",NA,"NA"
+"Middle Branch Root River nr Fillmore, CSAH5","Impacted",0.0059,"0.039","0.035",NA,NA,NA,NA
+"Cedar River nr Austin, MN","Impacted",0.0126,"0.525","0.338","0.65","0.954",NA,"NA"
+"Turtle Creek at Austin, 43rd St","Impacted",0.0078,"0.359","0.268",NA,NA,NA,"NA"
+"Shell Rock River nr Gordonsville, CSAH1","Impacted",0.0121,"0.526","0.68","1.159","1.368",NA,NA
+"West Fork Des Moines River nr Avoca, CSAH6","Impacted",0.0065,"0.014","NA",NA,NA,"NA","NA"
+"West Fork Des Moines River at Jackson, River St","Impacted",0.0068,"0.037","NA","0.342","0.592","NA",NA
+"Bois de Sioux River nr Doran, MN","Impacted",0.0019,"0.086","NA","0.069","0.128","NA","0.084"
+"Mustinka River nr Norcross, MN9","Impacted",0,"0.083","0.082",NA,NA,"NA","NA"
+"Twelvemile Creek nr Wheaton, CSAH14","Impacted",0,"0.429","NA",NA,"NA","0.141","NA"
+"Pelican River nr Fergus Falls, MN210","Impacted",0.0031,"0.019","0.006",NA,NA,"NA","0.02"
+"Otter Tail River nr Elizabeth, MN","Impacted",0.0013,"0.003","0.002",NA,"0.005","NA","NA"
+"Otter Tail River at Breckenridge, CSAH16","Impacted",0.0018,"0.016","0.011","0.005","0.01",NA,"NA"
+"Red River of the North nr Kragnes, CSAH26","Impacted",0.0027,"0.275","0.254","0.217","0.332",NA,NA
+"Buffalo River nr Georgetown, CR108","Impacted",0.0021,"0.093","0.067","0.042","0.052",NA,NA
+"Buffalo River nr Glyndon, CSAH19","Impacted",0.004,"0.068","NA",NA,NA,NA,NA
+"South Branch Buffalo River nr Glyndon, 28th Ave S","Impacted",8e-04,"0.128","NA",NA,NA,NA,"NA"
+"Buffalo River nr Hawley, MN","Impacted",0.0012,"0.06","NA",NA,"NA","NA",NA
+"Wild Rice River nr Mahnomen, CSAH25","Impacted",0,"0.019",NA,NA,NA,NA,NA
+"Wild Rice River at Twin Valley, MN","Impacted",0.0012,"0.007","NA",NA,"NA",NA,NA
+"Wild Rice River at Hendrum, MN","Impacted",0.002,"0.03","0.031","0.012","0.018","NA","NA"
+"S Br. Wild Rice River at CR27 nr Felton, MN","Impacted",0.006,"0.055","NA",NA,NA,NA,NA
+"Sandhill River nr Fertile, 450th St SW","Impacted",0.0016,"0.029","0.018",NA,NA,NA,"0.052"
+"Sand Hill River at Climax, MN, US-75","Impacted",8e-04,"0.034","0.024","0.014","0.031","NA","NA"
+"Red Lake River at High Landing nr Goodridge, MN","Impacted",0,"0.011","NA",NA,NA,"NA","0.003"
+"Red Lake River at Red Lake Falls, CR13","Impacted",4e-04,"0.004","0.004",NA,NA,"0.003","0.023"
+"Red Lake River at Fisher, MN","Impacted",0.001,"0.013","NA","0.009","0.017",NA,"0.034"
+"Thief River nr Thief River Falls, MN","Impacted",0,"0.011","0.012","0.026","0.05","NA","0.027"
+"Thief River downstream of CSAH 7, 6 mi E of Holt","Impacted",0,"0.007","NA",NA,"0.036","0.002","0.013"
+"Mud River nr Grygla, MN89","Impacted",0,"0.021","0.008",NA,NA,NA,"0.029"
+"Clearwater River at Plummer, MN","Impacted",0.0021,"0.043","0.027",NA,NA,"NA",NA
+"Lost River nr Brooks, CR119","Impacted",0.0026,"0.042","0.085",NA,NA,NA,NA
+"Clearwater River at Red Lake Falls, MN","Impacted",0.002,"0.009","0.009","0.01","0.04","NA","NA"
+"Snake River nr Big Woods, MN220","Impacted",0.001,"NA","0.068","0.074","0.191",NA,"NA"
+"Middle River at Argyle, MN","Impacted",0.0016,"0.043","0.048",NA,NA,NA,"0.062"
+"Snake River above Warren, MN","Impacted",0,"NA","0.068",NA,NA,"NA","NA"
+"Tamarac River nr Florian, CSAH1","Impacted",0,"0.011","NA",NA,NA,"NA","0.022"
+"Tamarac River nr Stephen, CSAH22","Impacted",0,"NA",NA,"0.03","0.198",NA,"0.036"
+"Two Rivers nr Hallock, CSAH16","Impacted",4e-04,"0.016","NA","0.018","0.03",NA,"NA"
+"South Branch Two Rivers at Hallock, MN175","Impacted",6e-04,"0.052","NA",NA,"NA",NA,"NA"
+"South Branch Two Rivers at Lake Bronson, MN","Impacted",0,"0.104","0.053",NA,"NA",NA,"NA"
+"Kawishiwi River nr Winton, CSAH18","Less Impacted",0,"0.004","NA","0.007","0.007","0.004","NA"
+"Stony River nr Babbitt, Tomahawk Rd","Less Impacted",0,"0.003","NA",NA,"NA","NA","NA"
+"Little Fork River nr Linden Grove, TH73","Impacted",0.0027,"0.02","0.018",NA,NA,NA,NA
+"Little Fork River at Little Fork, MN","Less Impacted",5e-04,"0.004","0.004","0.009","0.015",NA,"NA"
+"Little Fork River nr Littlefork, MN65","Less Impacted",6e-04,"0.007","0.005",NA,NA,NA,"NA"
+"Big Fork River nr Bigfork, MN6","Less Impacted",0,"0.007",NA,NA,NA,NA,"0.01"
+"Big Fork River at Big Falls, MN","Less Impacted",8e-04,"0.004","0.003","0.005","0.011","NA","0.003"
+"Big Fork River nr Craigville, MN6","Less Impacted",8e-04,"0.004","NA",NA,NA,NA,"NA"
+"East Fork Rapid River nr Clementson, CSAH18","Less Impacted",0,"0.022",NA,NA,NA,"NA","NA"
+"Rapid River at Clementson, MN11","Impacted",0,"0.004","0.003","0.01","0.014","NA","NA"
+"Split Rock Creek nr Jasper, 201st St","Impacted",0.0036,"0.011","NA","0.014","0.027",NA,NA
+"Pipestone Creek nr Pipestone, CSAH13","Impacted",0.0065,"0.025",NA,NA,"NA","NA","NA"
+"Rock River at Luverne, CR4","Impacted",0.0055,"0.016","NA","0.02","0.025","NA","NA"
