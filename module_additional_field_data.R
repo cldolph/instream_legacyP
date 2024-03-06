@@ -116,7 +116,8 @@ write.table(Event.summary, 'REACH_sites_latesummer_lowflow_25pct.csv', sep=",", 
 #fix label order for Stream Type
 Event.summary$StreamType<-factor(Event.summary$StreamType, levels=c("Ditch",
                                                                     "Intermittent Stream/River",
-                                                                    "Perennial Stream/River"))
+                                                                    "Perennial Stream/River"),
+                                 labels=c("Ditch", "Intermittent Stream", "Perennial Stream"))
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #Manuscript Figure: SRP for field sites, compared to tile 
 
@@ -162,17 +163,20 @@ FWC2 %>%
   filter(Type=="Tile") %>% 
   summarise(mean.DOP=mean(DOP_mgL))
 
-
+#function to make nicer labels
+addline_format <- function(x,...){
+  gsub('\\s','\n',x)
+}
 
 plotA<-ggplot(FWC2 %>% filter(Type=="Tile"&Season==Season.label))+
   geom_boxplot(aes(Site_ID, (DOP_mgL)))+
   ylim(0,1.5)+
   theme(panel.grid=element_blank(),
-        #axis.text.x = element_text(angle = -45, hjust=-0.1),
+        axis.text.x = element_text(angle = -45, hjust=-0.1),
         #axis.title.x=element_blank(),
         #axis.text.x=element_blank(),
-        axis.title.y=element_text(size=18),
-        axis.text.y=element_text(size=18))+
+        axis.title=element_text(size=18),
+        axis.text=element_text(size=18))+
   geom_abline(slope=0, intercept=(mean.tile), linetype="dashed")+
   xlab("Monitored tile outlets")+
   #xlab("")+
@@ -187,8 +191,11 @@ plotB<-ggplot(Event.summary)+
   ylab("")+
   xlab("Stream Type")+
   theme(panel.grid=element_blank(),
-        axis.title.y=element_text(size=18),
-        axis.text.y=element_text(size=18))
+        axis.title=element_text(size=18),
+        axis.text=element_text(size=18))+
+  scale_x_discrete(breaks=levels(Event.summary$StreamType), 
+                   labels=addline_format(c("Ditch", 
+                                           "Intermittent Stream", "Perennial Stream")))
 plotB
 
 
@@ -196,8 +203,8 @@ grid.arrange(plotA, plotB, ncol=2, nrow=1)
 
 #Print Figures to file
 setwd(output_dir)
-jpeg(
-  file="./Figures/Field_sites_LateSummer_tile_vs_riverSRP.jpeg",
+png(
+  file="./Figures/Fig6_Field_sites_LateSummer_tile_vs_riverSRP.png",
   units='in', height=7, width=15, res=300)
 grid.arrange(plotA, plotB, ncol=2, nrow=1)
 dev.off()

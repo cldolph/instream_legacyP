@@ -79,7 +79,7 @@ P.hist
 
 #write fig to file
 setwd(output_dir)
-jpeg("./Figures/meanSRP_dist.jpeg", units="in", width=5, height=4, res=300)
+png("./Figures/FigA1_meanSRP_dist.png", units="in", width=5, height=4, res=300)
 P.hist
 dev.off()
 
@@ -467,7 +467,7 @@ ActualvsPredict.plot
 
 #write fig to file
 setwd(output_dir)
-jpeg("./Figures/Actual_vs_model_predicted_P_test_data_EP50_128_1_outlier_excluded.jpeg", units="in", width=4, height=4, res=300)
+png("./Figures/FigA4_Actual_vs_model_predicted_P_test_data_EP50_128_1_outlier_excluded.png", units="in", width=4, height=4, res=300)
 ActualvsPredict.plot
 dev.off()
 
@@ -636,7 +636,7 @@ Importance.plot
 
 
 #write fig to file
-jpeg("./Figures/Covariate_importance_plot_EP50_128sites_1outliersexcluded.jpeg", 
+png("./Figures/Fig9_Covariate_importance_plot_EP50_128sites_1outliersexcluded.png", 
      units="in", width=17, height=8, res=300)
 Importance.plot
 dev.off()
@@ -670,16 +670,10 @@ names(P.Predictors)
 
 #Top variables:
 
-
-ggplot(lowflow.att2 %>% filter(Season=="Late Summer"))+
-  ylim(0,0.6)+
-  #geom_point(aes(ClayWs, mean.SRP))+
-  #geom_text(aes(ClayWs, mean.SRP, label=Station_name))
- 
 plot1<-partialPlot(rfP_model, P_train_preprocessed, PctCrop2019CatRp100)
 plot1
 plot2<-partialPlot(rfP_model, P_train_preprocessed, PctCrop2019WsRp100)
-plot3
+plot2
 
 plot3<-partialPlot(rfP_model, P_train_preprocessed, KffactCat)
 plot3
@@ -900,7 +894,7 @@ grid.arrange(plot1a, plot2a, plot3a, plot4a, plot5a,
 
 #write fig to file
 setwd(output_dir)
-jpeg("./Figures/Partial_dependence_plot.jpeg", units="in", width=9, height=12, res=300)
+png("./Figures/Fig10_Partial_dependence_plot.png", units="in", width=9, height=12, res=300)
 grid.arrange(plot1a, plot2a, plot3a, plot4a, plot5a,
              plot6a, plot7a, plot8a, plot9a, plot10a, plot11a,
              plot12a, plot13a, plot14a, plot15a, ncol=3)

@@ -412,45 +412,42 @@ levels(factor(CQ.all$Station_name))
 "Little Beauford Ditch nr Beauford, MN22"
 "Le Sueur River at St. Clair, CSAH28"
 "Pomme de Terre River nr Hoffman, CR76"
+#"Le Sueur River at St. Clair, CSAH28",
 
-#site.list<-c("Big Cobb River nr Beauford, CSAH16",
-#             "Little Beauford Ditch nr Beauford, MN22",
-#            "Le Sueur River at St. Clair, CSAH28",
-#            "East Branch Chippewa River nr Benson, CR78")
+site.list<-c("Big Cobb River nr Beauford, CSAH16",
+             "Little Beauford Ditch nr Beauford, MN22",
+             "Big Fork River at Big Falls, MN",
+            "East Branch Chippewa River nr Benson, CR78")
 
 #Alternative site list (no NPDES or WWTP impacts):
 site.list<-c("Shakopee Creek nr Benson, 20th Ave SW",
-             "Little Beauford Ditch nr Beauford, MN22", #**big difference
-             #"Redwood River at Russell, CR15",
-             "High Island Creek nr Arlington, CR9",
-             "Mustinka River nr Norcross, MN9") #**big difference
+             "Little Beauford Ditch nr Beauford, MN22", 
+             "Twelvemile Creek nr Wheaton, CSAH14",
+             "Mustinka River nr Norcross, MN9") 
 
 #Or, select single site to plot
-#site.list<-c("Buffalo Creek nr Glencoe, CSAH1")
+#site.list<-c("East Branch Chippewa River nr Benson, CR78")
 
 plotA<-ggplot()+
   geom_point(data=(CQ.all %>% filter(Station_name %in% site.list)),
              aes(log10(normalized_flow), log10(SRP), color=Season), size=2) +
   geom_smooth(data=(CQ.all %>% filter(Station_name %in% site.list)),
-              aes(log10(normalized_flow), log10(SRP)), method=lm, se=FALSE, color="black")+
+              aes(log10(normalized_flow), log10(SRP), linetype="all data"), method=lm, se=FALSE, color="black")+
   geom_point(data=(CQ.all %>% 
                      filter(Station_name %in% site.list) %>% 
                      filter(!(lowflowpoint=="yes"))),
              aes(log10(normalized_flow), log10(SRP)), size=2, color="gray") +
   geom_smooth(data=(CQ.all %>% filter(Station_name %in% site.list) %>% 
-                      filter(!(lowflowpoint=="yes"&Season=="Late Summer")) %>% 
-                      filter(!(lowflowpoint=="yes"&Season=="Fall"))),
-              aes(log10(normalized_flow), log10(SRP)), method=lm, color="black", linetype=3, se=FALSE)+
-  #ylim(-3, 0)+
+                      filter(!(lowflowpoint=="yes"&Season=="Late Summer"))), #%>% 
+                      #filter(!(lowflowpoint=="yes"&Season=="Fall"))),
+              aes(log10(normalized_flow), log10(SRP), linetype="late summer low flows omitted"), method=lm, color="black", se=FALSE)+
+  scale_linetype_manual(name="C-Q relationship", values=c(1, 3))+
+ #ylim(-3, 0)+
   #xlim(-2.1, 2.5)+
   ylab("Log10 SRP (mg/L")+
   xlab("Log10 Q/Qgm")+
   facet_wrap(~Station_name)+
-  scale_color_manual(values = c("#edf8fb","#bfd3e6",
-                                "#9ebcda",
-                                "#8c96c6",
-                                "#8856a7",
-                                "#810f7c"))+
+  scale_color_manual(values = c("#a6611a", "#dfc27d", "#f5f5f5", "#80cdc1", "#018571"))+
   theme_bw()+
   theme(panel.grid=element_blank())+
   geom_abline(slope=0, intercept=log10(0.03))
@@ -459,9 +456,9 @@ plotA
 
 #Print Figure to file 
 setwd(output_dir)
-jpeg(
-  file="./Figures/Examples_CQ_change.jpeg",
-  units='in', height=6.5, width=8, res=300)
+png(
+  file="./Figures/Fig8_Examples_CQ_change.png",
+  units='in', height=6.5, width=9, res=300)
 plotA
 dev.off()
 
@@ -576,8 +573,8 @@ Transport.stats2 %>%
 
 #Print Figure to file 
 setwd(output_dir)
-jpeg(
- file="./Figures/Transport_behavior.jpeg",
+png(
+ file="./Figures/FigA3_Transport_behavior.png",
   units='in', height=6, width=8, res=300)
 Transport.plot
 dev.off()
@@ -724,9 +721,9 @@ lowflow.att2 %>% filter(WWTPAllDensWs>0.005) %>%
 #Count sites with elevated SRP concentration in late summer, without WWTP influence
 lowflow.att2 %>%
   filter(Season=="Late Summer") %>% 
-  filter(WWTPAllDensWs<0.005) %>% 
+  #filter(WWTPAllDensWs<0.005) %>% 
   #filter(WWTPAllDensWs==0) %>% 
-  filter(mean.SRP>0.03) %>% 
+  filter(mean.SRP>0.02) %>% 
   count()
 
 #write table for Appendix
@@ -788,8 +785,8 @@ WWTP.SRP.plot
 
 #Print Figure to file
 setwd(output_dir)
-jpeg(
-  file="./Figures/SRP_vs_WWTP.jpeg",
+png(
+  file="./Figures/Fig2_SRP_vs_WWTP.png",
   units='in', height=6, width=9, res=300)
 WWTP.SRP.plot
 dev.off()
@@ -891,8 +888,8 @@ plot1
 
 #Print Figure to file
 setwd(output_dir)
-jpeg(
-  file="./Figures/SRP_vs_PctCrop_alldata.jpeg",
+png(
+  file="./Figures/Fig3_SRP_vs_PctCrop_alldata.png",
   units='in', height=6, width=9, res=300)
 plot1
 dev.off()
@@ -993,8 +990,8 @@ plot2
 
 #Print Figure to file 
 setwd(output_dir)
-jpeg(
-  file="./Figures/SRP_vs_PctCrop_NoWWTP.jpeg",
+png(
+  file="./Figures/Fig4_SRP_vs_PctCrop_NoWWTP.png",
   units='in', height=6, width=9, res=300)
 plot2
 dev.off()
@@ -1014,7 +1011,7 @@ source('module_tile_WQ_data.R')
 
 ##Plot tile concentrations for each site in each season
 #Note: select season manually by specifying 'Season.label' to produce plot for each season
-
+#Note: mean tile concentration must also be changed for each season 
 
 
 #add number of samples for each gage, by season
@@ -1071,8 +1068,8 @@ grid.arrange(plotA, plotB, ncol=2, nrow=1)
 
 #Print Figures to file (need to make separately for each season)
 setwd(output_dir)
-jpeg(
-  file="./Figures/Fall_tile_vs_riverSRP.jpeg",
+png(
+  file="./Figures/Fall_tile_vs_riverSRP.png",
   units='in', height=6, width=12, res=300)
 grid.arrange(plotA, plotB, ncol=2, nrow=1)
 dev.off()
