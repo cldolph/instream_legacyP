@@ -421,19 +421,31 @@ rf_fit
 
 #Save the final model 
 saveRDS(rf_fit, "./rf_fit.ranger_MODEL_training_25pct_latesummer.rds")
+setwd(output_dir)
 rf_fit<-readRDS("./rf_fit.ranger_MODEL_training_25pct_latesummer.rds")
 rf_fit
 ###
 #APPLY MODEL TO TEST DATA
 #predict soil P for the test dataset
+#read in test data if needed
+P_test_preprocessed<-read.csv("./latesummerSRP_test_preprocessed_25pct.csv", sep=",", header=TRUE)
+
 rf_pred <-predict(rf_fit, new_data=P_test_preprocessed)
 rf_pred  
 #add predictions to test data:
 test.pred<-as.data.frame(cbind(P_test_preprocessed, rf_pred))
 head(test.pred)
+names(test.pred)
 
 
 #unscale by multiplying values by the standard deviation and adding the mean of the training dataset
+#read in as needed:
+P.Predictors<-read.table("./latesummer_SRP_Predictors_imputed_25pct.csv", sep=",", header=TRUE)
+names(P.Predictors)
+names(test.prep)
+colnames(P.Predictors)[1]<- "mean.SRP"
+
+
 test.pred$latesummer_mean_SRP_unscaled<-test.pred$mean.SRP* sd(P.Predictors$mean.SRP) + mean(P.Predictors$mean.SRP)
 test.pred$pred_unscaled<-test.pred$.pred* sd(P.Predictors$mean.SRP) + mean(P.Predictors$mean.SRP)
 head(test.pred)
@@ -443,6 +455,20 @@ nrow(test.pred)
 #(using unscaled data)
 reg1<- with(test.pred,lm(latesummer_mean_SRP_unscaled~pred_unscaled))
 summary(reg1)
+
+#Calculate bias
+#across all sites
+with(test.pred,
+mean(pred_unscaled-latesummer_mean_SRP_unscaled))
+#and across sites with SRP<0.2 mg/L
+with(test.pred %>% filter(latesummer_mean_SRP_unscaled<0.2),
+     mean(pred_unscaled-latesummer_mean_SRP_unscaled))
+
+
+#Look at measured values:
+test.pred$latesummer_mean_SRP_unscaled
+test.pred %>% filter(latesummer_mean_SRP_unscaled>0.2) %>% 
+  select(latesummer_mean_SRP_unscaled)
 #excluding outlier 
 reg<- with(test.pred[test.pred$latesummer_mean_SRP_unscaled<0.25,],lm(latesummer_mean_SRP_unscaled~pred_unscaled))
 summary(reg)
@@ -523,7 +549,11 @@ saveRDS(rfP_model, "./FINALMODEL_randomForest_latesummer.rds")
 
 #LOAD IN MODEL (if needed)
 rfP_model<-readRDS("./FINALMODEL_randomForest_latesummer.rds")
-rfP_model
+
+print(rfP_model)
+names(rfP_model)
+
+rfP_model$mtry
 
 #Check performance of the model (should match performance of the random_Forest() model tuned above, using tidymodels?)
 rf.pred<-predict(rfP_model, newdata=P_test_preprocessed)
@@ -586,6 +616,62 @@ VarImp2[1:75,]
 #Appendix table - list of all model predictors, by importance
 setwd(output_dir)
 write.table(VarImp2, "Importance_values_table.csv", sep=",", row.names=FALSE)
+
+#Edit: Add detailed attribute definitions to all predictor importance table:
+setwd(output_dir)
+VarImp2<-read.csv("Importance_values_table.csv", header=TRUE)
+head(VarImp2)
+#View(VarImp2)
+
+#Read in variable definitions downloaded from StreamCat:
+setwd(input_dir)
+SC.def<-read.csv("streamcat_variable_info_9_24_24.csv", header=TRUE)
+head(SC.def)
+names(SC.def)
+
+#View(SC.def)
+
+#Match more detailed info to importance table, based on partial match for metric name column
+library(fuzzyjoin)
+library(stringdist)
+
+imp.def<-SC.def %>%
+  mutate(METRIC_NAME2 = str_replace(METRIC_NAME, "\\[Year\\]", "")) %>% 
+  mutate(METRIC_NAME2=str_replace(METRIC_NAME2, "\\[AOI\\]", "")) %>% #format metric name for partial match to importance table
+  fuzzyjoin::regex_left_join(VarImp2, ., by = c(Var = "METRIC_NAME2")) %>% 
+  mutate(Var2=str_replace(Var, "Cat|Ws", "")) %>%  #drop "Cat" or "Ws" from variable name for cleaner match
+  group_by(Var) %>%
+  slice(which.min(stringdist(Var2, METRIC_NAME2, method = "lv"))) %>% #keep rows with closest match
+  ungroup() %>% 
+  select(Var, Imp, METRIC_DESCRIPTION) %>%  #select only needed columns
+  arrange(desc(Imp)) %>%  #sort by importance
+  rename(Predictor=Var, Importance=Imp, Description=METRIC_DESCRIPTION)#make nicer column names
+View(imp.def)
+
+#What variables got dropped?
+VarImp2 %>% filter(!Var %in% imp.def$Predictor)
+#Tile density was an attribute I defined; add in
+#Phos_Crop_Uptake was from an older version of StreamCat
+
+#Add these in:
+add.in <- data.frame(
+  Predictor = c("Phos_Crop_UptakeWs", "Phos_Crop_UptakeCat", "Tile_density"),
+  Importance = c(0.0037147074, 0.0003853966, -0.0009894957),
+  Description=c("Phosphorus uptake by crops in the watershed", "Phosphorus update by crops in the catchment",
+               "Tile density in the watershed in m2/km2"))
+add.in
+
+imp.def.all<-rbind(imp.def, add.in) %>% 
+  arrange(desc(Importance)) 
+
+View(imp.def.all)
+
+#Write new Appendix table to file:
+#Appendix table - list of all model predictors, by importance
+setwd(output_dir)
+write.table(imp.def.all, "TableA6_Importance_values_table_revised.csv", sep=",", row.names=FALSE)
+
+
 
 #rename 30m grid scale NLCD attribute so it doesn't get confused with catchment-scale attributes
 VarImp3<-

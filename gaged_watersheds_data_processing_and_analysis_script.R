@@ -23,8 +23,8 @@ rm(list=ls()) #if needed
 #install packages where necessary and load libraries
 #list of necessary packages 
 necPkgs <- c('tidyverse','readxl','purrr','janitor', 'stringr', 'lubridate',
-             'data.table', 'broom', 'rebus', 'gridExtra', 'gt', 'tidymodels', 
-             'workflows', 'tune', 'ranger', 'missRanger')
+             'data.table', 'broom', 'rebus', 'gridExtra', 'gt', 'fuzzyjoin', 'ggpubr', 
+             'tidymodels', 'workflows', 'tune', 'ranger', 'missRanger', 'psych', 'RColorBrewer')
 
 
 # list of all packages installed 
@@ -142,7 +142,7 @@ nrow(conc)
 
 #Calculate geometric mean of flow for each gage (based on total flow record for each gage)
 #for geometric mean function, use psych package
-library(psych)
+
 names(Discharge.rank)
 QGM<-Discharge.rank %>% 
   select(Station_number, Flow_cfs) %>% 
@@ -161,6 +161,14 @@ head(gage_normalized)
 
 levels(factor(gage_normalized$Station_number))
 nrow(gage_normalized)
+
+#Detection Limits
+names(gage_normalized)
+summary(gage_normalized$SRP)
+
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+# MERGE CONCENTRATION-DISCHARGE DATA TO IDENTIFYING SPATIAL INFORMATION #
+# = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # MERGE CONCENTRATION-DISCHARGE DATA TO IDENTIFYING SPATIAL INFORMATION #
@@ -277,7 +285,7 @@ ggplot(CQ.att3 %>% filter(lowflowpoint=="yes"))+
 View(CQ.att3 %>% filter(lowflowpoint=="yes") %>% 
   #filter(Impacted=="Impacted") %>%  #option to look only at impacted sites
   group_by(Impacted, Season) %>% 
-  summarise(meanSRP=round(mean(SRP), 4), maxSRP=max(SRP), minSRP=min(SRP)))
+  summarise(meanSRP=round(mean(SRP), 3), maxSRP=max(SRP), minSRP=min(SRP)))
 
 #count number of Impacted sites
 #note - see notes below on excluding Kettle River site (no summer low flow samples)
@@ -402,7 +410,6 @@ names(CQ.all)
 #Figure for Manuscript 
 
 #color options for plot: 
-library(RColorBrewer)
 
 #list of all sites
 levels(factor(CQ.all$Station_name))
@@ -426,30 +433,38 @@ site.list<-c("Shakopee Creek nr Benson, 20th Ave SW",
              "Mustinka River nr Norcross, MN9") 
 
 #Or, select single site to plot
-#site.list<-c("East Branch Chippewa River nr Benson, CR78")
+#site.list<-c("Little Beauford Ditch nr Beauford, MN22")
 
 plotA<-ggplot()+
   geom_point(data=(CQ.all %>% filter(Station_name %in% site.list)),
-             aes(log10(normalized_flow), log10(SRP), color=Season), size=2) +
+             aes(log10(normalized_flow), log10(SRP), color=Season), size=3) +
+  geom_point(data=(CQ.all %>% 
+                    filter(Station_name %in% site.list) %>% 
+                    filter(!(lowflowpoint=="yes"))),
+            aes(log10(normalized_flow), log10(SRP)), size=3, color="gray") +
+  geom_smooth(data=(CQ.all %>% filter(Station_name %in% site.list) %>% 
+                      filter(!(lowflowpoint=="yes"&Season=="Late Summer"))) %>% 
+                      filter(!(lowflowpoint=="yes"&Season=="Fall")),
+              aes(log10(normalized_flow), log10(SRP), linetype="late summer low flows omitted"), method=lm, color="black", se=FALSE)+
   geom_smooth(data=(CQ.all %>% filter(Station_name %in% site.list)),
               aes(log10(normalized_flow), log10(SRP), linetype="all data"), method=lm, se=FALSE, color="black")+
-  geom_point(data=(CQ.all %>% 
-                     filter(Station_name %in% site.list) %>% 
-                     filter(!(lowflowpoint=="yes"))),
-             aes(log10(normalized_flow), log10(SRP)), size=2, color="gray") +
-  geom_smooth(data=(CQ.all %>% filter(Station_name %in% site.list) %>% 
-                      filter(!(lowflowpoint=="yes"&Season=="Late Summer"))), #%>% 
-                      #filter(!(lowflowpoint=="yes"&Season=="Fall"))),
-              aes(log10(normalized_flow), log10(SRP), linetype="late summer low flows omitted"), method=lm, color="black", se=FALSE)+
   scale_linetype_manual(name="C-Q relationship", values=c(1, 3))+
- #ylim(-3, 0)+
+  facet_wrap(~Station_name)+
+  #ylim(-3, 0)+
   #xlim(-2.1, 2.5)+
   ylab("Log10 SRP (mg/L")+
   xlab("Log10 Q/Qgm")+
-  facet_wrap(~Station_name)+
-  scale_color_manual(values = c("#a6611a", "#dfc27d", "#f5f5f5", "#80cdc1", "#018571"))+
+  #xlab("Stream Flow, log scale)")+ #labels for slide presentation
+  #ylab("SRP Concentration (mg/L), log scale")+
+         #facet_wrap(~Station_name)+
+  scale_color_manual(values = c("#8c510a", "#d8b365", "#c7eae5", "#5ab4ac", "#01665e"))+
   theme_bw()+
   theme(panel.grid=element_blank())+
+  theme(axis.text=element_text(size=12), 
+         axis.title=element_text(size=12),
+         legend.text=element_text(size=12),
+        legend.title=element_text(size=12))+
+        #legend.title=element_text(size=14, face="bold"))+ #for presentation 
   geom_abline(slope=0, intercept=log10(0.03))
 #geom_abline(slope=0, intercept=log10(0.09))
 plotA
@@ -457,8 +472,16 @@ plotA
 #Print Figure to file 
 setwd(output_dir)
 png(
-  file="./Figures/Fig8_Examples_CQ_change.png",
-  units='in', height=6.5, width=9, res=300)
+  file="./Figures/Fig8_Examples_CQ_change_REVISED.png",
+  units='in', height=6.5, width=9.5, res=300)
+plotA
+dev.off()
+
+#Print figure for presentation slides
+setwd(output_dir)
+png(
+  file="./Figures/LittleBeaufordDitch_CQ_change.png",
+  units='in', height=6.5, width=10, res=300)
 plotA
 dev.off()
 
@@ -728,14 +751,23 @@ lowflow.att2 %>%
 
 #write table for Appendix
 #Seasonal mean SRP for each gage + WWTP influence
+#Plus add watershed area
+names(lowflow.att2)
 setwd(output_dir)
 write.table(lowflow.att2 %>% 
-              select(Station_name, Season, mean.SRP, Impacted, WWTPAllDensWs) %>% 
+              mutate("WWTP Density (sites/km2)" = round(WWTPAllDensWs, 3)) %>% 
+              mutate("Drainage Area (km2)" = round(WsAreaSqKm, 2)) %>% 
+              select(Station_name, "Drainage Area (km2)", Season, mean.SRP, Impacted, "WWTP Density (sites/km2)") %>% 
               pivot_wider(names_from = Season, values_from = mean.SRP),
-            "Lowflow_meanSRP_by_gage_and_Season_with_WWTPinfo.csv", sep=",", row.names=FALSE)
+            "TableA3_Lowflow_meanSRP_by_gage_and_Season_with_WWTPinfo_revised.csv", sep=",", row.names=FALSE)
 
-#view(lowflow.att2)
-
+View(lowflow.att2 %>% 
+       mutate("WWTP Density (sites/km2)" = round(WWTPAllDensWs, 3)) %>% 
+       mutate("Drainage Area (km2)" = round(WsAreaSqKm, 2)) %>% 
+  select(Station_name, "Drainage Area (km2)", Season, mean.SRP, Impacted, "WWTP Density (sites/km2)") %>% 
+  pivot_wider(names_from = Season, values_from = mean.SRP))
+  
+  
 #Write table with all attributes, for use in regression models:
 setwd(output_dir)
 write.table(lowflow.att2, "Lowflow_meanSRP_by_gage_and_Season_with_attributes.csv", sep=",")
@@ -766,27 +798,38 @@ lowflow.att3$Season=factor(lowflow.att3$Season, levels=c("Early Winter",
 #Manuscript Figure (Wastewater treatment plant density vs SRP)
 #and associated Appendix Table
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-WWTP.SRP.plot<-ggplot(lowflow.att3)+
-  geom_point(aes(WWTPAllDensWs, log(mean.SRP)))+
+library(ggpubr)
+WWTP.SRP.plot<-
+  #ggplot(lowflow.att3 %>% filter(Season=="Late Summer"))+ #for presentation slides select only late summer
+  ggplot(lowflow.att3)+
+  geom_point(aes(WWTPAllDensWs, log(mean.SRP)), size=3)+
   #geom_text(aes(WWTPAllDensCat, log(mean.SRP), label=Site_name))+
-  #only had trendlines where significant:
+  #for presentation slides only use late summer trendline:
+  #geom_smooth(data=lowflow.att3 %>% filter(Season=="Late Summer"), aes(WWTPAllDensWs, log(mean.SRP)), method="lm", se=FALSE)+
+  #only add trendlines where significant:
   geom_smooth(data=lowflow.att3 %>% filter(!Season=="Spring"&!Season=="Early Summer"), aes(WWTPAllDensWs, log(mean.SRP)), method="lm", se=FALSE)+
   #xlim(0,0.005) +#see effect when sites with higher density of point discharges removed
-  facet_wrap(~Season)+
+  xlim(0,0.015)+
   theme_bw()+
   theme(panel.grid=element_blank())+
+  theme(axis.text=element_text(size=16), axis.title=element_text(size=18))+ #font for presentation slides 
   #xlab(bquote(Density of wastewater treatment plants (sites/km^2))+
   #xlab(expression(Channel~Density~(km/km^2))+
   #          labs(y = bquote(Total~density~(Individuals%.%L^-1)))+
+  geom_vline(xintercept=0.005, linetype="dashed")+
   labs(x=bquote(Density~of~wastewater~treatment~plants~(sites/km^2)))+        
   ylab("log10 SRP (mg/L)")+
-  geom_vline(xintercept=0.005, linetype="dashed")
+  stat_cor(aes(WWTPAllDensWs, log(mean.SRP), label = after_stat(rr.label)), 
+           label.x.npc=0.5, label.y.npc=0.1, r.accuracy=0.01,
+           color = "black", geom = "label")+
+  facet_wrap(~Season)+
+  theme(panel.spacing = unit(2, "lines"))
 WWTP.SRP.plot
 
 #Print Figure to file
 setwd(output_dir)
 png(
-  file="./Figures/Fig2_SRP_vs_WWTP.png",
+  file="./Figures/Fig2_LateSummer_SRP_vs_WWTP_WITHtrendline_revised.png",
   units='in', height=6, width=9, res=300)
 WWTP.SRP.plot
 dev.off()
@@ -862,6 +905,7 @@ WWTP_Stats2_v2<-WWTP_Stats2_v2 %>%
 WWTP_Stats_All<-rbind(WWTP_Stats2, WWTP_Stats2_v2)
 WWTP_Stats_All<-WWTP_Stats_All %>% 
   arrange(Season)
+View(WWTP_Stats_All)
 
 #Appendix table:
 setwd(output_dir)
@@ -873,23 +917,36 @@ write.table(WWTP_Stats_All, "SRP_vs_WWTPdensity_regstats.csv", sep=",", row.name
 #Ag land use vs low flow SRP
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 plot1<-ggplot(lowflow.att3) +
-  geom_point(aes(PctCrop2019Ws, log(mean.SRP), colour=WWTPAllDensWs), size=3)+
+  #ggplot(lowflow.att3 %>% filter(WWTPAllDensWs==0 & Season=="Late Summer")) + #for slides presentation
+  #geom_point(aes(PctCrop2019Ws, log(mean.SRP)), size=4, color="orange")+
+  #only had trendlines where significant:
+  #geom_smooth(data=lowflow.att3 %>% filter(WWTPAllDensWs==0 & Season=="Late Summer"), aes(PctCrop2019Ws, log(mean.SRP)), method="lm", se=FALSE)+
+  #ggplot(lowflow.att3 %>% filter(Season=="Late Summer"))+ #for slides presentation 
+  geom_point(aes(PctCrop2019Ws, log(mean.SRP), colour=WWTPAllDensWs), size=4)+
   #only add trendlines where significant:
   geom_smooth(data=lowflow.att3, aes(PctCrop2019Ws, log(mean.SRP)), method="lm", se=FALSE)+
   facet_wrap(~Season)+
   theme_bw()+
   theme(panel.grid=element_blank())+
+  theme(axis.text=element_text(size=14), axis.title=element_text(size=14),
+        legend.title=element_text(size=12), legend.text=element_text(size=10))+ #format text for slides presentation
   xlab("% cropland")+
   ylab("log10 SRP (mg/L)")+
+  theme(legend.position="top")+
+  labs(colour=expression(paste('Density of wastewater treatment plants' (sites/km^2))))+
+  #labs(colour=expression(paste('WWTP density' (sites/km^2))))+
   scale_color_gradient(low="orange", high="green")+
-  labs(colour=bquote(Density~of~wastewater~treatment~plants~(sites/km^2)))+
-  theme(legend.position="top")
+  stat_cor(aes(PctCrop2019Ws, log(mean.SRP), label = after_stat(rr.label)), 
+           label.x.npc=0.03, label.y.npc=0.9, r.accuracy=0.01,
+           color = "black", geom = "label")+
+  theme(panel.spacing = unit(1, "lines"))
+  
 plot1
 
 #Print Figure to file
 setwd(output_dir)
 png(
-  file="./Figures/Fig3_SRP_vs_PctCrop_alldata.png",
+  file="./Figures/Fig3_SRP_vs_PctCrop_NoWWTP_LateSummer_revised.png",
   units='in', height=6, width=9, res=300)
 plot1
 dev.off()
@@ -966,7 +1023,7 @@ Crop_Stats2_v2<-Crop_Stats2_v2 %>%
 Crop_Stats_All<-rbind(Crop_Stats2, Crop_Stats2_v2)
 Crop_Stats_All<-Crop_Stats_All %>% 
   arrange(Season)
-#View(Crop_Stats_All)
+View(Crop_Stats_All)
 
 #Appendix table:
 setwd(output_dir)
@@ -985,13 +1042,17 @@ plot2<-ggplot(lowflow.att3 %>% filter(WWTPAllDensWs==0)) +
   #scale_color_gradient(low="orange", high="green")+
   labs(colour=bquote(Density~of~wastewater~treatment~plants~(sites/km^2)))+
   ggtitle("Only sites without wastewater treatment plants")+
-  theme(plot.title = element_text(hjust = 0.5, size=12))
+  theme(plot.title = element_text(hjust = 0.5, size=12))+
+  stat_cor(aes(PctCrop2019Ws, log(mean.SRP), label = after_stat(rr.label)), 
+           label.x.npc=0.03, label.y.npc=0.9, r.accuracy=0.01,
+           color = "black", geom = "label")+
+  theme(panel.spacing = unit(1, "lines"))
 plot2
 
 #Print Figure to file 
 setwd(output_dir)
 png(
-  file="./Figures/Fig4_SRP_vs_PctCrop_NoWWTP.png",
+  file="./Figures/Fig4_SRP_vs_PctCrop_NoWWTP_revised.png",
   units='in', height=6, width=9, res=300)
 plot2
 dev.off()
@@ -1017,16 +1078,18 @@ source('module_tile_WQ_data.R')
 #add number of samples for each gage, by season
 sample.count<-Table.Season.count %>% 
   pivot_longer(!Station_name, names_to="Season", values_to="count")
+
 CQ.att4<-merge(CQ.att3, sample.count, by=c("Station_name", "Season"))
+sample.count
 
 #for plot formatting make a dummy label that matches format of tile labels
 CQ.att4<-CQ.att4 %>% 
   mutate(DummyID=substr(Station_name,1,7))
 
 #set Season for Plots
-Season.label<-"Fall"
+Season.label<-"Late Summer"
 #set intercept for mean tile SRP for appropriate Season
-mean.tile<-0.035
+mean.tile<-0.033
 
 plotA<-ggplot(FWC %>% filter(Type=="Tile"&Season==Season.label))+
   geom_boxplot(aes(Site_ID, (DOP_mgL)))+
@@ -1034,7 +1097,8 @@ plotA<-ggplot(FWC %>% filter(Type=="Tile"&Season==Season.label))+
   theme(panel.grid=element_blank(),
         #axis.text.x = element_text(angle = -45, hjust=-0.1),
         axis.title.x=element_blank(),
-        axis.text.x=element_blank(),
+        #axis.text.x=element_blank(),
+        axis.text.x = element_text(angle = -45, hjust=-0.1), #to keep tile labels
         axis.title.y=element_text(size=18),
         axis.text.y=element_text(size=18))+
   geom_abline(slope=0, intercept=(mean.tile))+
@@ -1052,9 +1116,9 @@ plotB<-ggplot(CQ.att4 %>%
         #axis.text.x=element_text(angle = -45, hjust=-0.1, color="white"), 
         axis.text.y=element_text(size=18),
         #legend.position="none")+
-  legend.position=c(.225,.875),
-  legend.title=element_text(size=18),
-  legend.text = element_text(size=18))+
+        legend.position=c(.225,.875),
+        legend.title=element_text(size=18),
+        legend.text = element_text(size=18))+
   geom_abline(slope=0, intercept=mean.tile)+
   scale_fill_manual(values=c("#E69F00", "#56B4E9","#D55E00"))+
   scale_color_manual(values=c("#E69F00", "#56B4E9","#D55E00"))+
@@ -1063,16 +1127,27 @@ plotB<-ggplot(CQ.att4 %>%
   #ylab("SRP (mg/L)")+
   #xlab("Gaged watersheds")+
   ylab("")
+plotB
 
 grid.arrange(plotA, plotB, ncol=2, nrow=1)
 
 #Print Figures to file (need to make separately for each season)
 setwd(output_dir)
 png(
-  file="./Figures/Fall_tile_vs_riverSRP.png",
+  file="./Figures/Fig5_LABELS.png",
+  #file="./Figures/LateSummer_tile_vs_riverSRP.png",
   units='in', height=6, width=12, res=300)
 grid.arrange(plotA, plotB, ncol=2, nrow=1)
 dev.off()
+
+#for slides presentation, plot gages only
+setwd(output_dir)
+png(
+  file="./Figures/LateSummer_riverSRP.png",
+  units='in', height=6, width=12, res=300)
+plotB
+dev.off()
+
 
 #Check number of outliers removed with shorter yaxis (limited to 0,1.25)
 CQ.att4 %>% 
@@ -1085,6 +1160,15 @@ FWC %>%
   nrow()
 nrow(FWC)
 
+#Count number of gaged watersheds with data available for each season
+names(CQ.att4)
+total.gages.by.season<-CQ.att4 %>% 
+  filter(lowflowpoint=="yes"&count>=3) %>% 
+  group_by(Season) %>% 
+  select(Station_name) %>% 
+  distinct() %>% 
+  count()
+total.gages.by.season
 
 #Count number of gaged watersheds with mean SRP above mean tile SRP concentration, for each season
 
@@ -1095,21 +1179,26 @@ mean.monthly
 lowflow.att4<-merge(lowflow.att3, mean.monthly, by=c("Season"))
 
 #count number of gaged watersheds with SRP> mean tile SRP, by season:
-#View(lowflow.att4 %>% 
-#  select(Station_name, Season, mean.SRP, mean.SRP.tile) %>% 
-#  mutate(above_tile=ifelse(round(mean.SRP, 3)>round(mean.SRP.tile,3), 1, 0)) %>% 
-#  group_by(Season) %>% 
-#  summarise(total=sum(above_tile, na.rm=TRUE)))
+sites.above<-lowflow.att4 %>% 
+  select(Station_name, Season, mean.SRP, mean.SRP.tile) %>% 
+  mutate(above_tile=ifelse(round(mean.SRP, 3)>round(mean.SRP.tile,3), 1, 0)) %>% 
+  group_by(Season) %>% 
+  summarise(total_above=sum(above_tile, na.rm=TRUE))
     
 
 #Check in the context of WWTP
 #figure out how many sites with mean SRP higher than mean tile have strong WWTP influence
-#View(lowflow.att4 %>% 
-#  filter(WWTPAllDensWs > 0.005) %>% 
-#    select(Station_name, Season, mean.SRP, mean.SRP.tile) %>% 
-#    mutate(above_tile=ifelse(round(mean.SRP, 3)>round(mean.SRP.tile,3), 1, 0)) %>% 
-#    group_by(Season) %>% 
-#    summarise(total=sum(above_tile, na.rm=TRUE)))
+
+sites.above.WW<-lowflow.att4 %>% 
+  filter(WWTPAllDensWs > 0.005) %>% 
+    select(Station_name, Season, mean.SRP, mean.SRP.tile) %>% 
+    mutate(above_tile=ifelse(round(mean.SRP, 3)>round(mean.SRP.tile,3), 1, 0)) %>% 
+    group_by(Season) %>% 
+    summarise(total_above_w_highWW=sum(above_tile, na.rm=TRUE))
+
+sites.above.all<-merge(sites.above, sites.above.WW, by=c("Season"))
+sites.above.all.total<-merge(sites.above.all, total.gages.by.season)
+View (sites.above.all.total)
 
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 # Late summer SRP for additional field sites compared to tile 

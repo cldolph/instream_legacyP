@@ -1,0 +1,144 @@
+Site name,Drainage Area (km2),Human Impact,WWTP Density (sites/km2),Spring,Early Summer,Late Summer,Fall,Early Winter,Late Winter
+"Brule River nr Hovland, MN61",544.30,Less Impacted,0,NA,NA,NA,NA,NA,NA
+"Poplar River nr Lutsen, 0.2mi US of MN61",293.29,Less Impacted,0.003,NA,NA,0.003,0.003,0.004,0.003
+"Baptism River nr Beaver Bay, MN61",358.44,Less Impacted,0.003,NA,NA,0.004,NA,0.006,0.003
+"Beaver River nr Beaver Bay, 1.2mi us of MN61",318.73,Impacted,0.003,NA,NA,0.003,NA,NA,NA
+"Big Sucker Creek nr Palmers, CR258",93.48,Less Impacted,0,NA,0.003,0.003,NA,0.011,0.009
+"St. Louis River at Floodwood, CSAH8",4978.62,Impacted,0.004,0.002,NA,0.011,NA,NA,NA
+"St. Louis River nr Forbes, US53",1793.51,Impacted,0.006,0.003,NA,0.004,0.003,NA,NA
+"Second Creek nr Aurora, 0.6mi us of CSAH110",56.66,Impacted,0,NA,NA,0.004,0.002,NA,0.006
+"St. Louis River at Scanlon, MN",8893.21,Impacted,0.003,NA,0.009,0.004,NA,0.007,NA
+"Cloquet River nr Brimson, CSAH44",330.99,Less Impacted,0,NA,NA,0.004,NA,NA,NA
+"Cloquet River nr Burnett, CR694",2032.29,Less Impacted,0.001,0.005,0.005,0.003,NA,0.008,NA
+"Nemadji River nr Pleasant Valley, MN23",324.41,Impacted,0,NA,NA,0.005,NA,NA,NA
+"Mississippi River nr Bemidji, CSAH11",958.60,Impacted,0.001,NA,0.028,0.03,NA,NA,NA
+"Mississippi River nr Bemidji, MN",1627.93,Impacted,0.002,NA,0.003,0.003,NA,NA,NA
+"Leech Lake River nr Ball Club, CR139",3464.53,Impacted,0.001,0.004,0.003,0.004,NA,NA,NA
+"Boy River nr Boy River, CSAH53",750.13,Less Impacted,0.001,NA,NA,0.002,NA,NA,NA
+"Prairie River nr Taconite, MN",79.80,Impacted,0,0.006,NA,0.005,NA,NA,0.006
+"Mississippi River at Grand Rapids, MN",8483.32,Impacted,0.001,0.003,0.003,0.005,0.007,NA,0.003
+"Swan River nr Jacobson, CR438",758.11,Impacted,0.012,NA,NA,0.018,NA,NA,NA
+"Swan River nr Sobieski, MN238",462.60,Impacted,0.002,NA,NA,0.021,NA,NA,NA
+"Pine River nr Jenkins, CSAH15",743.11,Impacted,0,NA,NA,NA,NA,NA,NA
+"Leaf River nr Staples, CSAH29",2232.34,Impacted,0.003,NA,NA,0.022,NA,0.013,0.025
+"Long Prairie River at Philbrook, 313th Ave",2346.60,Impacted,0.005,NA,0.035,0.023,NA,0.024,0.022
+"Long Prairie River at Long Prairie, MN",1271.78,Impacted,0.005,0.014,NA,NA,NA,NA,0.016
+"Two Rivers nr Bowlus, 40th St",386.26,Impacted,0.008,NA,NA,NA,NA,NA,NA
+"Sauk River nr St. Martin, CR12",2887.54,Impacted,0.005,0.018,NA,0.059,NA,NA,NA
+"Clearwater River nr Clearwater, CR145",436.24,Impacted,0.002,0.008,NA,0.003,NA,NA,NA
+"Elk River nr Big Lake, MN",1373.83,Impacted,0.003,NA,0.027,NA,NA,NA,NA
+"St. Francis River nr Big Lake, 164th St",530.84,Impacted,0,NA,0.02,0.013,NA,NA,NA
+"Middle Fork Crow River nr Manannah, CSAH30",702.11,Impacted,0.006,0.01,0.022,0.012,NA,NA,NA
+"North Fork Crow River nr Cokato, CSAH4",2638.30,Impacted,0.004,NA,0.07,0.031,NA,NA,NA
+"North Fork Crow River nr Rockford, Farmington Ave",3444.89,Impacted,0.005,NA,NA,0.02,0.021,0.031,0.045
+"South Fork Crow River at Delano, Bridge Ave",3295.67,Impacted,0.004,NA,NA,0.182,0.239,0.168,0.218
+"Buffalo Creek nr Glencoe, CSAH1",969.28,Impacted,0.004,NA,NA,0.793,NA,NA,NA
+"West Branch Rum River nr Princeton, CR102",482.91,Impacted,0.006,NA,NA,NA,NA,NA,NA
+"Rum River at Anoka,headwater side of dam",4113.49,Impacted,0.004,NA,0.043,NA,NA,0.01,0.015
+"Minnesota River nr Lac qui Parle, MN",10546.93,Impacted,0.003,NA,NA,0.085,0.055,0.094,0.126
+"Yellow Bank River nr Odessa, CSAH40",1191.21,Impacted,0.004,NA,NA,0.03,NA,0.021,0.31
+"Pomme De Terre River at Appleton, MN",2227.38,Impacted,0.002,NA,NA,NA,NA,0.024,0.082
+"Pomme de Terre River nr Hoffman, CR76",1026.90,Impacted,0.002,NA,NA,0.013,0.01,NA,NA
+"Lac qui Parle River nr Lac qui Parle, CSAH31",2487.56,Impacted,0.004,NA,0.042,0.019,NA,0.028,0.063
+"Lac qui Parle River nr Providence, CSAH23",983.91,Impacted,0.004,NA,NA,0.023,NA,NA,NA
+"West Branch Lac qui Parle River at Dawson, Diagonal St",1220.43,Impacted,0.002,NA,NA,0.083,NA,NA,NA
+"Hawk Creek nr Maynard, MN23",1226.46,Impacted,0.003,NA,0.056,0.051,0.034,NA,NA
+"Hawk Creek nr Granite Falls, CR52",1321.42,Impacted,0.003,NA,0.003,0.01,0.013,0.083,0.158
+"Beaver Creek nr Beaver Falls, CSAH2",495.39,Impacted,0.004,NA,NA,0.053,0.041,NA,NA
+"Yellow Medicine River nr Granite Falls, MN",1716.39,Impacted,0.002,NA,NA,0.034,0.012,0.02,0.35
+"Yellow Medicine River nr Hanley Falls, CR18",1171.62,Impacted,0.001,NA,NA,0.019,0.027,NA,NA
+"Spring Creek nr Hanley Falls, 480th St",332.81,Impacted,0.006,NA,NA,0.293,NA,NA,NA
+"Chippewa River nr Clontarf, CSAH22",1731.39,Impacted,0.004,NA,NA,0.016,0.009,NA,NA
+"Shakopee Creek nr Benson, 20th Ave SW",786.32,Impacted,0,0.006,NA,0.141,NA,NA,0.024
+"Chippewa River nr Milan, MN40",4626.36,Impacted,0.002,NA,NA,0.022,0.009,0.02,0.027
+"East Branch Chippewa River nr Benson, CR78",1305.27,Impacted,0.001,NA,0.043,0.048,0.019,NA,NA
+"Redwood River nr Redwood Falls, MN",1619.96,Impacted,0.003,NA,NA,0.099,0.731,1.175,1.247
+"Redwood River at Russell, CR15",599.04,Impacted,0,NA,NA,0.035,0.015,NA,NA
+"Minnesota River at Morton, MN",23008.88,Impacted,0.003,NA,NA,0.046,0.058,0.098,0.141
+"Minnesota River at Judson, CSAH42",28865.06,Impacted,0.003,NA,0.01,0.027,0.028,0.04,0.08
+"Seven Mile Creek nr St. Peter, 0.6mi us of US169",94.16,Impacted,0,0.008,0.015,0.016,0.012,NA,0.027
+"Cottonwood River nr New Ulm, MN68",3374.02,Impacted,0.003,0.01,0.007,0.007,0.007,0.016,0.048
+"Sleepy Eye Creek nr Cobden, CR8",706.81,Impacted,0,NA,NA,0.022,0.021,NA,NA
+"Cottonwood River nr Leavenworth, CR8",2281.68,Impacted,0.004,NA,NA,0.013,NA,NA,NA
+"Blue Earth River nr Winnebago, CSAH12",3592.84,Impacted,0.004,NA,NA,0.027,0.025,NA,NA
+"East Branch Blue Earth River at Blue Earth, CSAH16",764.22,Impacted,0.003,NA,NA,0.071,0.062,NA,NA
+"Blue Earth River nr Rapidan, MN",6274.80,Impacted,0.004,NA,NA,0.015,0.006,0.015,0.028
+"South Fork Watonwan River nr Madelia, CSAH13",515.74,Impacted,0.004,NA,NA,0.052,NA,NA,NA
+"Watonwan River nr La Salle, CSAH3",875.15,Impacted,0.005,NA,NA,0.073,NA,NA,NA
+"Watonwan River nr Garden City, CSAH13",2205.66,Impacted,0.005,NA,NA,0.016,0.022,0.017,0.152
+"Maple River nr Sterling Center, CR18",801.21,Impacted,0.004,NA,NA,0.071,NA,NA,NA
+"Big Cobb River nr Beauford, CSAH16",787.09,Impacted,0.006,NA,0.048,0.041,0.042,NA,NA
+"Maple River nr Rapidan, CR35",877.79,Impacted,0.005,NA,NA,0.02,0.038,NA,NA
+"Little Beauford Ditch nr Beauford, MN22",22.03,Impacted,0,0.025,0.083,0.153,NA,NA,NA
+"Le Sueur River nr Rapidan, CR8",1156.71,Impacted,0.005,0.004,0.017,0.029,0.027,NA,NA
+"Le Sueur River nr Rapidan, MN",2873.06,Impacted,0.005,NA,0.006,0.014,0.012,0.014,0.032
+"Le Sueur River at St. Clair, CSAH28",919.12,Impacted,0.006,0.023,0.101,0.058,NA,NA,NA
+"High Island Creek nr Arlington, CR9",428.96,Impacted,0,0.037,NA,0.079,NA,NA,NA
+"High Island Creek nr Henderson, CSAH6",624.30,Impacted,0.002,NA,NA,0.019,NA,NA,NA
+"Snake River nr Pine City, MN",2563.68,Impacted,0.003,NA,0.02,0.012,NA,0.014,0.02
+"Sunrise River at Sunrise, CR88",870.50,Impacted,0.005,NA,NA,0.037,NA,NA,NA
+"Wells Creek nr Frontenac, US61",176.12,Impacted,0,0.032,NA,NA,0.04,NA,NA
+"Cannon River at Welch, MN",3477.94,Impacted,0.007,NA,NA,0.204,NA,0.009,0.044
+"Cannon River at Morristown, CSAH16",627.90,Impacted,0.008,0.121,NA,NA,0.29,NA,NA
+"Straight River nr Faribault, MN",1129.24,Impacted,0.006,NA,NA,NA,NA,0.069,NA
+"Whitewater River nr Beaver, CSAH30",689.62,Impacted,0.01,NA,NA,0.047,0.039,0.039,0.048
+"North Fork Whitewater River at Elba, Whitewater Dr",269.37,Impacted,0.011,NA,NA,NA,0.057,NA,0.049
+"North Fork Zumbro River nr Mazeppa, CSAH7",621.81,Impacted,0.006,NA,NA,0.057,0.026,NA,0.046
+"Zumbro River at Kellogg, US61",3677.89,Impacted,0.008,NA,NA,0.046,NA,0.033,0.042
+"South Fork Zumbro River nr Oronoco, CR121",885.55,Impacted,0.015,NA,NA,0.11,0.077,NA,NA
+"South Branch Middle Fork Zumbro River nr Oronoco,5th St",569.86,Impacted,0.011,NA,NA,0.057,0.025,NA,NA
+"Middle Fork Zumbro River nr Oronoco,5th St",534.52,Impacted,0.006,NA,NA,0.041,0.02,NA,NA
+"South Branch Root River at Lanesboro, Rochelle Ave N",738.36,Impacted,0.01,NA,NA,0.03,0.032,NA,NA
+"Middle Branch Root River nr Fillmore, CSAH5",506.94,Impacted,0.006,NA,NA,0.039,0.035,NA,NA
+"Cedar River nr Austin, MN",1030.86,Impacted,0.013,NA,NA,0.525,0.338,0.65,0.954
+"Turtle Creek at Austin, 43rd St",382.45,Impacted,0.008,NA,NA,0.359,0.268,NA,NA
+"Shell Rock River nr Gordonsville, CSAH1",496.65,Impacted,0.012,NA,NA,0.526,0.68,1.159,1.368
+"West Fork Des Moines River nr Avoca, CSAH6",1233.33,Impacted,0.006,NA,NA,0.014,NA,NA,NA
+"West Fork Des Moines River at Jackson, River St",3216.99,Impacted,0.007,NA,NA,0.037,NA,0.342,0.592
+"Bois de Sioux River nr Doran, MN",4713.44,Impacted,0.002,NA,0.084,0.086,NA,0.069,0.128
+"Mustinka River nr Norcross, MN9",486.58,Impacted,0,NA,NA,0.083,0.082,NA,NA
+"Twelvemile Creek nr Wheaton, CSAH14",1006.00,Impacted,0,0.141,NA,0.429,NA,NA,NA
+"Pelican River nr Fergus Falls, MN210",1294.46,Impacted,0.003,NA,0.02,0.019,0.006,NA,NA
+"Otter Tail River nr Elizabeth, MN",2974.42,Impacted,0.001,NA,NA,0.003,0.002,NA,0.005
+"Otter Tail River at Breckenridge, CSAH16",5116.19,Impacted,0.002,NA,NA,0.016,0.011,0.005,0.01
+"Red River of the North nr Kragnes, CSAH26",28555.84,Impacted,0.003,NA,NA,0.275,0.254,0.217,0.332
+"Buffalo River nr Georgetown, CR108",2820.97,Impacted,0.002,NA,NA,0.093,0.067,0.042,0.052
+"Buffalo River nr Glyndon, CSAH19",998.93,Impacted,0.004,NA,NA,0.068,NA,NA,NA
+"South Branch Buffalo River nr Glyndon, 28th Ave S",1314.84,Impacted,0.001,NA,NA,0.128,NA,NA,NA
+"Buffalo River nr Hawley, MN",837.03,Impacted,0.001,NA,NA,0.06,NA,NA,NA
+"Wild Rice River nr Mahnomen, CSAH25",1473.79,Impacted,0,NA,NA,0.019,NA,NA,NA
+"Wild Rice River at Twin Valley, MN",2405.45,Impacted,0.001,NA,NA,0.007,NA,NA,NA
+"Wild Rice River at Hendrum, MN",4091.49,Impacted,0.002,NA,NA,0.03,0.031,0.012,0.018
+"S Br. Wild Rice River at CR27 nr Felton, MN",499.54,Impacted,0.006,NA,NA,0.055,NA,NA,NA
+"Sandhill River nr Fertile, 450th St SW",620.95,Impacted,0.002,NA,0.052,0.029,0.018,NA,NA
+"Sand Hill River at Climax, MN, US-75",1209.33,Impacted,0.001,NA,NA,0.034,0.024,0.014,0.031
+"Red Lake River at High Landing nr Goodridge, MN",5963.65,Impacted,0,NA,0.003,0.011,NA,NA,NA
+"Red Lake River at Red Lake Falls, CR13",9413.51,Impacted,0,0.003,0.023,0.004,0.004,NA,NA
+"Red Lake River at Fisher, MN",14466.12,Impacted,0.001,NA,0.034,0.013,NA,0.009,0.017
+"Thief River nr Thief River Falls, MN",2515.45,Impacted,0,NA,0.027,0.011,0.012,0.026,0.05
+"Thief River downstream of CSAH 7, 6 mi E of Holt",1658.23,Impacted,0,0.002,0.013,0.007,NA,NA,0.036
+"Mud River nr Grygla, MN89",481.28,Impacted,0,NA,0.029,0.021,0.008,NA,NA
+"Clearwater River at Plummer, MN",1454.55,Impacted,0.002,NA,NA,0.043,0.027,NA,NA
+"Lost River nr Brooks, CR119",772.13,Impacted,0.003,NA,NA,0.042,0.085,NA,NA
+"Clearwater River at Red Lake Falls, MN",3474.65,Impacted,0.002,NA,NA,0.009,0.009,0.01,0.04
+"Snake River nr Big Woods, MN220",2006.98,Impacted,0.001,NA,NA,NA,0.068,0.074,0.191
+"Middle River at Argyle, MN",643.64,Impacted,0.002,NA,0.062,0.043,0.048,NA,NA
+"Snake River above Warren, MN",491.56,Impacted,0,NA,NA,NA,0.068,NA,NA
+"Tamarac River nr Florian, CSAH1",464.17,Impacted,0,NA,0.022,0.011,NA,NA,NA
+"Tamarac River nr Stephen, CSAH22",909.20,Impacted,0,NA,0.036,NA,NA,0.03,0.198
+"Two Rivers nr Hallock, CSAH16",2660.25,Impacted,0,NA,NA,0.016,NA,0.018,0.03
+"South Branch Two Rivers at Hallock, MN175",1669.83,Impacted,0.001,NA,NA,0.052,NA,NA,NA
+"South Branch Two Rivers at Lake Bronson, MN",1380.24,Impacted,0,NA,NA,0.104,0.053,NA,NA
+"Kawishiwi River nr Winton, CSAH18",3415.83,Less Impacted,0,0.004,NA,0.004,NA,0.007,0.007
+"Stony River nr Babbitt, Tomahawk Rd",550.10,Less Impacted,0,NA,NA,0.003,NA,NA,NA
+"Little Fork River nr Linden Grove, TH73",736.54,Impacted,0.003,NA,NA,0.02,0.018,NA,NA
+"Little Fork River at Little Fork, MN",4382.42,Less Impacted,0,NA,NA,0.004,0.004,0.009,0.015
+"Little Fork River nr Littlefork, MN65",3492.09,Less Impacted,0.001,NA,NA,0.007,0.005,NA,NA
+"Big Fork River nr Bigfork, MN6",1567.06,Less Impacted,0,NA,0.01,0.007,NA,NA,NA
+"Big Fork River at Big Falls, MN",3888.36,Less Impacted,0.001,NA,0.003,0.004,0.003,0.005,0.011
+"Big Fork River nr Craigville, MN6",2555.10,Less Impacted,0.001,NA,NA,0.004,NA,NA,NA
+"East Fork Rapid River nr Clementson, CSAH18",709.40,Less Impacted,0,NA,NA,0.022,NA,NA,NA
+"Rapid River at Clementson, MN11",2486.55,Impacted,0,NA,NA,0.004,0.003,0.01,0.014
+"Split Rock Creek nr Jasper, 201st St",822.62,Impacted,0.004,NA,NA,0.011,NA,0.014,0.027
+"Pipestone Creek nr Pipestone, CSAH13",308.55,Impacted,0.006,NA,NA,0.025,NA,NA,NA
+"Rock River at Luverne, CR4",1084.55,Impacted,0.005,NA,NA,0.016,NA,0.02,0.025

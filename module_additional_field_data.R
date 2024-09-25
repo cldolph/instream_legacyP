@@ -108,6 +108,7 @@ Event.summary<-chem.att2 %>%
        mutate(SRP_mgL=SRP/1000) %>% 
   group_by(Site_ID) %>% #take mean values by site 
   summarise(MeanSRP = mean(SRP_mgL, na.rm=TRUE), StreamType=unique(StreamType), Outlet_typ=unique(Outlet_typ)) 
+Event.summary
 
 #write to table so you can use in Arc GIS to filter sites:
 setwd(output_dir)
@@ -131,6 +132,11 @@ ggplot(Event.summary)+
 #But remember that 'perennial stream/river could have wastewater influence!'
 #might want to ID 'bigger' sites 
 
+
+#Count number of sites in each stream type category:
+Event.summary %>% 
+  group_by(StreamType) %>% 
+  count()
 
 #################################################################################
 ##Compare stream SRP concentrations with tile concentrations
